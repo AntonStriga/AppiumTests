@@ -1,4 +1,4 @@
-package libs;
+package lib;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -12,10 +12,10 @@ public class Platform {
     private static final String
             PLATFORM_IOS = "ios",
             PLATFORM_ANDROID = "android",
-            ANDROID_APPLICATION = "/Users/qa/JavaAppium/src/test/apks/old.org.wikipedia.apk",
-            IOS_APPLICATION = "/Users/qa/JavaAppium/src/test/apks/Wikipedia.app",
-            ANDROID_APP_PACKAGE = "org.wikipedia",
-            ANDROID_APP_ACTIVITY = ".main.MainActivity",
+            ANDROID_APPLICATION = "d://Appium_workspace/AppiumTests/JournalCosts/src/tests/apks/com.vitvov.profit.apk",
+            IOS_APPLICATION = "",
+            ANDROID_APP_PACKAGE = "com.vitvov.profit",
+            ANDROID_APP_ACTIVITY = ".ui.activity.LoginActivity",
             APPIUM_URL_TEMPLATE = "http://127.0.0.1:{PORT}/wd/hub";
 
     private static Platform instance;

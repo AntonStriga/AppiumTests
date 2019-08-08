@@ -1,19 +1,22 @@
-package libs;
+package lib;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class CoreTestCase {
 
     protected RemoteWebDriver driver;
+    protected WebDriverWait wait;
 
     @BeforeClass
     protected void setUp() throws Exception
     {
         driver = Platform.getInstance().getDriver();
+        wait = new WebDriverWait(driver, 60);
         this.rotateScreenPortrait();
     }
 
