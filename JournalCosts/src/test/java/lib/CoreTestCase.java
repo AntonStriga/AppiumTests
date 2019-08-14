@@ -10,13 +10,11 @@ import org.testng.annotations.BeforeClass;
 public class CoreTestCase {
 
     protected RemoteWebDriver driver;
-    protected WebDriverWait wait;
 
     @BeforeClass
     protected void setUp() throws Exception
     {
         driver = Platform.getInstance().getDriver();
-        wait = new WebDriverWait(driver, 60);
         this.rotateScreenPortrait();
     }
 

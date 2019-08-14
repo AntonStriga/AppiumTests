@@ -16,6 +16,7 @@ public class MainPageObject
     public MainPageObject(RemoteWebDriver driver)
     {
         this.driver = driver;
+        wait = new WebDriverWait(driver, 60);
     }
 
     public WebElement waitForElementPresent(String locator, String error_message)
@@ -23,6 +24,12 @@ public class MainPageObject
         By by = this.generateLocatorByString(locator);
         wait.withMessage(error_message + "\n");
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    public void waitForElementAndClick(String locator, String error_message)
+    {
+        WebElement element = this.waitForElementPresent(locator, error_message);
+        element.click();
     }
 
     private By generateLocatorByString(String locator_with_type)

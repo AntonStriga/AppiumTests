@@ -12,7 +12,7 @@ public class Platform {
     private static final String
             PLATFORM_IOS = "ios",
             PLATFORM_ANDROID = "android",
-            ANDROID_APPLICATION = "d://Appium_workspace/AppiumTests/JournalCosts/src/tests/apks/com.vitvov.profit.apk",
+            ANDROID_APPLICATION = "d:\\Appium_workspace\\AppiumTests\\JournalCosts\\src\\test\\apks\\com.vitvov.profit.apk",
             IOS_APPLICATION = "",
             ANDROID_APP_PACKAGE = "com.vitvov.profit",
             ANDROID_APP_ACTIVITY = ".ui.activity.LoginActivity",
