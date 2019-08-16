@@ -32,6 +32,11 @@ public class MainPageObject
         element.click();
     }
 
+    public WebElement waitForTitleElement(String locator)
+    {
+        return this.waitForElementPresent(locator, "Cannot find title element by locator "+ locator);
+    }
+
     private By generateLocatorByString(String locator_with_type)
     {
         String [] exploded_locator = locator_with_type.split(Pattern.quote(":"), 2);

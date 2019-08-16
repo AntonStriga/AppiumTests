@@ -9,42 +9,41 @@ abstract public class HomePageObject extends MainPageObject
         TITLE,
         TITLE_EXPENSE,
         TITLE_INCOMES,
-        TITLE_BALANCE;
+        TITLE_BALANCE,
+        ADD_EXPENSE_BUTTON;
 
     public HomePageObject (RemoteWebDriver driver)
     {
         super(driver);
     }
 
-    public WebElement waitForTitleElement()
-    {
-        return this.waitForElementPresent(TITLE, "Cannot find title.");
-    }
-
     public String getTitle()
     {
-        WebElement title_element = this.waitForTitleElement();
+        WebElement title_element = this.waitForTitleElement(TITLE);
         return title_element.getAttribute("text");
     }
 
     public String getExpenseTitle()
     {
-        this.waitForTitleElement();
-        WebElement title_element = this.waitForElementPresent(TITLE_EXPENSE, "Cannot find Expense block title.");
+        WebElement title_element = this.waitForTitleElement(TITLE_EXPENSE);
         return title_element.getAttribute("text");
     }
 
     public String getIncomesTitle()
     {
-        this.waitForTitleElement();
-        WebElement title_element = this.waitForElementPresent(TITLE_INCOMES, "Cannot find Incomes block title.");
+        WebElement title_element = this.waitForTitleElement(TITLE_INCOMES);
         return title_element.getAttribute("text");
     }
 
     public String getBalanceTitle()
     {
-        this.waitForTitleElement();
-        WebElement title_element = this.waitForElementPresent(TITLE_BALANCE, "Cannot find Balance block title.");
+        WebElement title_element = this.waitForTitleElement(TITLE_BALANCE);
         return title_element.getAttribute("text");
+    }
+
+    public void clickAddExpenseButton()
+    {
+        this.waitForTitleElement(TITLE);
+        this.waitForElementAndClick(ADD_EXPENSE_BUTTON, "Cannot find add expense button by locator " + ADD_EXPENSE_BUTTON);
     }
 }

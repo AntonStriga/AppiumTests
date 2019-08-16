@@ -10,6 +10,7 @@ public class AndroidHomePageObject extends HomePageObject
         TITLE_EXPENSE = "xpath://*[@resource-id='com.vitvov.profit:id/l1']//*[@class='android.widget.TextView']";
         TITLE_INCOMES = "xpath://*[@resource-id='com.vitvov.profit:id/l2']//*[@class='android.widget.TextView']";
         TITLE_BALANCE = "xpath://*[@resource-id='com.vitvov.profit:id/l3']//*[@class='android.widget.TextView']";
+        ADD_EXPENSE_BUTTON = "id:com.vitvov.profit:id/btTopAddCost";
     }
 
     public AndroidHomePageObject(RemoteWebDriver driver)
