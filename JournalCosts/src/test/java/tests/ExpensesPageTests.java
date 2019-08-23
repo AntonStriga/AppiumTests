@@ -22,11 +22,47 @@ public class ExpensesPageTests extends CoreTestCase
         ExpensesPageObject.clickBackButton();
 
         String title_element = HomePageObject.getTitle();
-
         assertEquals(
                 "Journal costs",
                 title_element,
                 "We didn't return to the main page"
+        );
+    }
+
+    @Test
+    public void openDatePickerAndCloseTest()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        ExpensesPageObject.openDatePicker();
+        ExpensesPageObject.cancelDatePicker();
+        String title_element = ExpensesPageObject.getTitle();
+
+        assertEquals(
+                "Expense",
+                title_element,
+                "We didn't close Date picker"
+        );
+    }
+
+    @Test
+    public void setDateInDataPickerTest()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        String selected_date = ExpensesPageObject.setDate();
+        String expense_date = ExpensesPageObject.getDate();
+
+        assertEquals(
+                selected_date,
+                expense_date,
+                "Date wasn't seted correctly"
         );
     }
 }
