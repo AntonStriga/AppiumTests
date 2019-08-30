@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class MainPageObject
 {
     protected RemoteWebDriver driver;
-    protected WebDriverWait wait;
+    private WebDriverWait wait;
 
     public MainPageObject(RemoteWebDriver driver)
     {

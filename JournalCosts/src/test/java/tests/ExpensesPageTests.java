@@ -65,4 +65,53 @@ public class ExpensesPageTests extends CoreTestCase
                 "Date wasn't seted correctly"
         );
     }
+
+    @Test
+    public void openTimePickerAndCloseTest()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        ExpensesPageObject.openTimePicker();
+        ExpensesPageObject.cancelTimePicker();
+        String title_element = ExpensesPageObject.getTitle();
+
+        assertEquals(
+                "Expense",
+                title_element,
+                "We didn't close Date picker"
+        );
+    }
+
+    @Test
+    public void setTImeInTimePickerTest()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        String selected_time = "22:35";
+        ExpensesPageObject.setTime();
+        String result_time = ExpensesPageObject.getTime();
+
+        assertEquals(
+                selected_time,
+                result_time,
+                "Time wasn't seted correctly"
+        );
+    }
+
+    @Test
+    public void openCategoryAndCloseTest()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        ExpensesPageObject.openCategory();
+    }
 }

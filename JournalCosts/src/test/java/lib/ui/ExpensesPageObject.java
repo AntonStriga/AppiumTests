@@ -11,12 +11,26 @@ abstract public class ExpensesPageObject extends MainPageObject
         DATE_PICKER,
         DATE_PICKER_CANCEL_BUTTON,
         DATE_PICKER_DATE_BUTTON,
-        DATE_PICKER_OK_BUTTON;
+        DATE_PICKER_OK_BUTTON,
+        TIME_PICKER,
+        TIME_PICKER_OK_BUTTON,
+        TIME_PICKER_CANCEL_BUTTON,
+        TIME_PICKER_HOUR_BUTTON,
+        TIME_PICKER_HOUR_NUMBER_BUTTON,
+        TIME_PICKER_MINUTES_BUTTON,
+        TIME_PICKER_MINUTES_NUMBER_BUTTON,
+        TIME_PICKER_AM_BUTTON,
+        TIME_PICKER_PM_BUTTON,
+        CATEGORY_LINK;
 
     public ExpensesPageObject(RemoteWebDriver driver)
     {
         super(driver);
     }
+
+    /* TEMPLATE METHODS */
+
+    /* TEMPLATE METHODS */
 
     public String getTitle()
     {
@@ -44,7 +58,7 @@ abstract public class ExpensesPageObject extends MainPageObject
         this.waitForElementAndClick(DATE_PICKER_DATE_BUTTON, "Cannot select date in Date picker by locator " + DATE_PICKER_DATE_BUTTON);
     }
 
-    private void clikOkButton()
+    private void clikDataPickerOkButton()
     {
         this.waitForElementAndClick(DATE_PICKER_OK_BUTTON, "Cannot find OK button in Date picker by locator " + DATE_PICKER_OK_BUTTON);
     }
@@ -55,12 +69,65 @@ abstract public class ExpensesPageObject extends MainPageObject
         this.selectDate();
         WebElement selected_element = this.waitForElementPresent(DATE_PICKER_DATE_BUTTON, "Cannot select date in Date picker by locator " + DATE_PICKER_DATE_BUTTON);
         String selected_date = selected_element.getAttribute("name");
-        this.clikOkButton();
+        this.clikDataPickerOkButton();
         return selected_date.substring(0,6) + selected_date.substring(selected_date.lastIndexOf(" "));
     }
 
-    public String getDate() {
+    public String getDate()
+    {
         WebElement date_element = this.waitForElementPresent(DATE_PICKER,"Cannot find Date picker by locator " + DATE_PICKER);
         return date_element.getAttribute("text");
+    }
+
+    public void openTimePicker()
+    {
+        this.waitForElementAndClick(TIME_PICKER,"Cannot find Date picker by locator " + TIME_PICKER);
+    }
+
+    private void selectHour()
+    {
+        this.waitForElementAndClick(TIME_PICKER_HOUR_BUTTON,"Cannot find Hour set button by locator " + TIME_PICKER_HOUR_BUTTON);
+        this.waitForElementAndClick(TIME_PICKER_HOUR_NUMBER_BUTTON,"Cannot find Hour number by locator " + TIME_PICKER_HOUR_NUMBER_BUTTON);
+    }
+
+    private void selectMinutes()
+    {
+        this.waitForElementAndClick(TIME_PICKER_MINUTES_BUTTON,"Cannot find Minutes set button by locator " + TIME_PICKER_MINUTES_BUTTON);
+        this.waitForElementAndClick(TIME_PICKER_MINUTES_NUMBER_BUTTON,"Cannot find Minutes set button by locator " + TIME_PICKER_MINUTES_NUMBER_BUTTON);
+    }
+
+    private void selectPM()
+    {
+        this.waitForElementAndClick(TIME_PICKER_PM_BUTTON,"Cannot find PM set button by locator " + TIME_PICKER_PM_BUTTON);
+    }
+
+    public void clickTimePickerOKButton()
+    {
+        this.waitForElementAndClick(TIME_PICKER_OK_BUTTON, "Cannot find Date picker Cancel button by locator " + TIME_PICKER_OK_BUTTON);
+    }
+
+    public void cancelTimePicker()
+    {
+        this.waitForElementAndClick(TIME_PICKER_CANCEL_BUTTON, "Cannot find Date picker Cancel button by locator " + TIME_PICKER_CANCEL_BUTTON);
+    }
+
+    public void setTime()
+    {
+        this.openTimePicker();
+        this.selectHour();
+        this.selectMinutes();
+        this.selectPM();
+        this.clickTimePickerOKButton();
+    }
+
+    public String getTime()
+    {
+        WebElement date_element = this.waitForElementPresent(TIME_PICKER,"Cannot find Time picker by locator " + TIME_PICKER);
+        return date_element.getAttribute("text");
+    }
+
+    public void openCategory()
+    {
+        this.waitForElementAndClick(CATEGORY_LINK,"Cannot find Category link by locator " + CATEGORY_LINK);
     }
 }
