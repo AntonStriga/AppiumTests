@@ -1,6 +1,6 @@
 package lib.ui.android;
 
-import lib.ui.ExpensesPageObject;
+import lib.ui.pageObjects.ExpensesPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class AndroidExpensesPageObject extends ExpensesPageObject
@@ -21,7 +21,7 @@ public class AndroidExpensesPageObject extends ExpensesPageObject
         TIME_PICKER_MINUTES_NUMBER_BUTTON = "xpath://*[@resource-id='android:id/radial_picker']//*[@content-desc='35']";
         TIME_PICKER_AM_BUTTON = "id:android:id/am_label";
         TIME_PICKER_PM_BUTTON = "id:android:id/pm_label";
-        CATEGORY_LINK = "";
+        CATEGORY_LINK = "id:com.vitvov.profit:id/transactionCategoryText";
     }
 
     public AndroidExpensesPageObject(RemoteWebDriver driver)

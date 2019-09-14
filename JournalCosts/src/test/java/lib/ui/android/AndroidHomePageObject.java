@@ -1,6 +1,6 @@
 package lib.ui.android;
 
-import lib.ui.HomePageObject;
+import lib.ui.pageObjects.HomePageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class AndroidHomePageObject extends HomePageObject
@@ -10,7 +10,19 @@ public class AndroidHomePageObject extends HomePageObject
         TITLE_EXPENSE = "xpath://*[@resource-id='com.vitvov.profit:id/l1']//*[@class='android.widget.TextView']";
         TITLE_INCOMES = "xpath://*[@resource-id='com.vitvov.profit:id/l2']//*[@class='android.widget.TextView']";
         TITLE_BALANCE = "xpath://*[@resource-id='com.vitvov.profit:id/l3']//*[@class='android.widget.TextView']";
+        TITLE_ALL_EXPENSES = "xpath://*[@resource-id='com.vitvov.profit:id/ibtTopSummryCost']/following-sibling::*[@class='android.widget.TextView']";
+        TITLE_ALL_INCOMES = "xpath://*[@resource-id='com.vitvov.profit:id/ibtTopSummryProfit']/following-sibling::*[@class='android.widget.TextView']";
         ADD_EXPENSE_BUTTON = "id:com.vitvov.profit:id/btTopAddCost";
+        ADD_INCOMES_BUTTON = "id:com.vitvov.profit:id/btTopAddProfit";
+        VIEW_BALANCE_BUTTON = "id:com.vitvov.profit:id/btTopBallanceMore";
+        TODAY_EXPENSE_SUM = "xpath://*[@resource-id='com.vitvov.profit:id/costListView']//*[@text='Today']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
+        WEEK_EXPENSE_SUM = "xpath://*[@resource-id='com.vitvov.profit:id/costListView']//*[@text='Week']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
+        MONTH_EXPENSE_SUM = "xpath://*[@resource-id='com.vitvov.profit:id/costListView']//*[@text='Month']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
+        EXPENCE_CURRENCY_VALUE = "id:com.vitvov.profit:id/tvMainCurrency";
+        INCOME_CURRENCY_VALUE = "id:com.vitvov.profit:id/tvMainCurrency2";
+        BALANCE_CURRENCY_VALUE = "id:com.vitvov.profit:id/tvMainCurrency3";
+        MONTH_INCOMES_SUM = "xpath://*[@resource-id='com.vitvov.profit:id/profitListView']//*[@text='Month']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
+        BALANCE_SUM = "xpath://*[@resource-id='com.vitvov.profit:id/balanceListView']//*[@text='Month']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
     }
 
     public AndroidHomePageObject(RemoteWebDriver driver)

@@ -1,7 +1,7 @@
 package lib.ui.factories;
 
 import lib.Platform;
-import lib.ui.HomePageObject;
+import lib.ui.pageObjects.HomePageObject;
 import lib.ui.android.AndroidHomePageObject;
 import lib.ui.ios.iOSHomePageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;

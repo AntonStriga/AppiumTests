@@ -1,6 +1,6 @@
 package lib.ui.ios;
 
-import lib.ui.CategoriesPageObject;
+import lib.ui.pageObjects.CategoriesPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class iOSCategoriesPageObject extends CategoriesPageObject

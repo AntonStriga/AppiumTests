@@ -1,4 +1,4 @@
-package lib.ui;
+package lib.ui.pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;

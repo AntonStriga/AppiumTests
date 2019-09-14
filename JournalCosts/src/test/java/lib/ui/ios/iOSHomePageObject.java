@@ -1,6 +1,6 @@
 package lib.ui.ios;
 
-import lib.ui.HomePageObject;
+import lib.ui.pageObjects.HomePageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class iOSHomePageObject extends HomePageObject

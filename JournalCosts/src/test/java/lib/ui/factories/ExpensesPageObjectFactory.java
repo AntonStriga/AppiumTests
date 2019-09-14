@@ -1,7 +1,7 @@
 package lib.ui.factories;
 
 import lib.Platform;
-import lib.ui.ExpensesPageObject;
+import lib.ui.pageObjects.ExpensesPageObject;
 import lib.ui.android.AndroidExpensesPageObject;
 import lib.ui.ios.iOSExpensesPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;

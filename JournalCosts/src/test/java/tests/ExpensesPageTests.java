@@ -1,8 +1,10 @@
 package tests;
 
 import lib.CoreTestCase;
-import lib.ui.ExpensesPageObject;
-import lib.ui.HomePageObject;
+import lib.ui.pageObjects.CategoriesPageObject;
+import lib.ui.pageObjects.ExpensesPageObject;
+import lib.ui.pageObjects.HomePageObject;
+import lib.ui.factories.CategoriesPageObjectFactory;
 import lib.ui.factories.ExpensesPageObjectFactory;
 import lib.ui.factories.HomePageObjectFactory;
 import org.testng.annotations.Test;
@@ -113,5 +115,31 @@ public class ExpensesPageTests extends CoreTestCase
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         ExpensesPageObject.openCategory();
+
+        CategoriesPageObject CategoriesPageObject = CategoriesPageObjectFactory.get(driver);
+        CategoriesPageObject.getTitle();
+        CategoriesPageObject.clickBackButton();
+
+        String title_element = ExpensesPageObject.getTitle();
+        assertEquals(
+                "Expense",
+                title_element,
+                "We didn't return to the Expense page"
+        );
+    }
+
+    @Test
+    public void selectCategoryTest()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        ExpensesPageObject.openCategory();
+
+        CategoriesPageObject CategoriesPageObject = CategoriesPageObjectFactory.get(driver);
+        CategoriesPageObject.getTitle();
+
     }
 }

@@ -1,6 +1,6 @@
 package lib.ui.ios;
 
-import lib.ui.ExpensesPageObject;
+import lib.ui.pageObjects.ExpensesPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class iOSExpensesPageObject extends ExpensesPageObject
