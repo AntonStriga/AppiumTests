@@ -9,10 +9,12 @@ abstract public class ExpensesPageObject extends MainPageObject
         TITLE,
         BACK_BUTTON,
         DATE_PICKER,
+        DATA_PICKER_TITLE,
         DATE_PICKER_CANCEL_BUTTON,
         DATE_PICKER_DATE_BUTTON,
         DATE_PICKER_OK_BUTTON,
         TIME_PICKER,
+        TIME_PICKER_TITLE,
         TIME_PICKER_OK_BUTTON,
         TIME_PICKER_CANCEL_BUTTON,
         TIME_PICKER_HOUR_BUTTON,
@@ -21,7 +23,9 @@ abstract public class ExpensesPageObject extends MainPageObject
         TIME_PICKER_MINUTES_NUMBER_BUTTON,
         TIME_PICKER_AM_BUTTON,
         TIME_PICKER_PM_BUTTON,
-        CATEGORY_LINK;
+        CATEGORY_LINK,
+        CATEGORY_BLOCK_TITLE,
+        AMOUNT_BLOCK_TITLE;
 
     public ExpensesPageObject(RemoteWebDriver driver)
     {
@@ -129,5 +133,29 @@ abstract public class ExpensesPageObject extends MainPageObject
     public void openCategory()
     {
         this.waitForElementAndClick(CATEGORY_LINK,"Cannot find Category link by locator " + CATEGORY_LINK);
+    }
+
+    public String getDataPickerTitle()
+    {
+        WebElement element = this.waitForTitleElement(DATA_PICKER_TITLE);
+        return element.getAttribute("text");
+    }
+
+    public String getTimePickerTitle()
+    {
+        WebElement element = this.waitForTitleElement(TIME_PICKER_TITLE);
+        return element.getAttribute("text");
+    }
+
+    public String getCategoryBlockTitle()
+    {
+        WebElement element = this.waitForTitleElement(CATEGORY_BLOCK_TITLE);
+        return element.getAttribute("text");
+    }
+
+    public String getAmountBlockTitle()
+    {
+        WebElement element = this.waitForTitleElement(AMOUNT_BLOCK_TITLE);
+        return element.getAttribute("text");
     }
 }

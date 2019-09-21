@@ -13,8 +13,16 @@ import static org.testng.Assert.assertEquals;
 
 public class ExpensesPageTests extends CoreTestCase
 {
+    private static String
+        MAIN_TITLE = "Journal costs",
+        EXPENSES_PAGE_TITLE = "Expense",
+        DATA_PICKER_TITLE = "Date",
+        TIME_PICKER_TITLE = "Time",
+        CATEGORY_BLOCK_TITLE = "Category",
+        AMOUNT_BLOCK_TITLE = "Amount";
+
     @Test
-    public void openExpensePageAndBackTest()
+    public void openExpensePageAndBack()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
@@ -25,14 +33,86 @@ public class ExpensesPageTests extends CoreTestCase
 
         String title_element = HomePageObject.getTitle();
         assertEquals(
-                "Journal costs",
                 title_element,
+                MAIN_TITLE,
                 "We didn't return to the main page"
         );
     }
 
     @Test
-    public void openDatePickerAndCloseTest()
+    public  void datePickerTitleVerification()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        String title_element = ExpensesPageObject.getDataPickerTitle();
+
+        assertEquals(
+                title_element,
+                DATA_PICKER_TITLE,
+                "Title of the Data Picker is incorrect."
+        );
+
+    }
+
+    @Test
+    public  void timePickerTitleVerification()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        String title_element = ExpensesPageObject.getTimePickerTitle();
+
+        assertEquals(
+                title_element,
+                TIME_PICKER_TITLE,
+                "Title of the Time Picker is incorrect."
+        );
+
+    }
+
+    @Test
+    public  void categoryBlockTitleVerification()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        String title_element = ExpensesPageObject.getCategoryBlockTitle();
+
+        assertEquals(
+                title_element,
+                CATEGORY_BLOCK_TITLE,
+                "Title of the Category block is incorrect."
+        );
+
+    }
+
+    @Test
+    public  void amountBlockTitleVerification()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        String title_element = ExpensesPageObject.getAmountBlockTitle();
+
+        assertEquals(
+                title_element,
+                AMOUNT_BLOCK_TITLE,
+                "Title of the Amount block is incorrect."
+        );
+
+    }
+
+    @Test
+    public void openDatePickerAndCancel()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
@@ -44,14 +124,14 @@ public class ExpensesPageTests extends CoreTestCase
         String title_element = ExpensesPageObject.getTitle();
 
         assertEquals(
-                "Expense",
                 title_element,
+                EXPENSES_PAGE_TITLE,
                 "We didn't close Date picker"
         );
     }
 
     @Test
-    public void setDateInDataPickerTest()
+    public void setDateInDataPicker()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
@@ -62,14 +142,14 @@ public class ExpensesPageTests extends CoreTestCase
         String expense_date = ExpensesPageObject.getDate();
 
         assertEquals(
-                selected_date,
                 expense_date,
+                selected_date,
                 "Date wasn't seted correctly"
         );
     }
 
     @Test
-    public void openTimePickerAndCloseTest()
+    public void openTimePickerAndCancel()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
@@ -81,14 +161,14 @@ public class ExpensesPageTests extends CoreTestCase
         String title_element = ExpensesPageObject.getTitle();
 
         assertEquals(
-                "Expense",
                 title_element,
+                EXPENSES_PAGE_TITLE,
                 "We didn't close Date picker"
         );
     }
 
     @Test
-    public void setTImeInTimePickerTest()
+    public void setTimeInTimePicker()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
@@ -100,14 +180,14 @@ public class ExpensesPageTests extends CoreTestCase
         String result_time = ExpensesPageObject.getTime();
 
         assertEquals(
-                selected_time,
                 result_time,
-                "Time wasn't seted correctly"
+                selected_time,
+                "Time wasn't set correctly"
         );
     }
 
     @Test
-    public void openCategoryAndCloseTest()
+    public void openCategoryAndCancel()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
@@ -122,14 +202,14 @@ public class ExpensesPageTests extends CoreTestCase
 
         String title_element = ExpensesPageObject.getTitle();
         assertEquals(
-                "Expense",
                 title_element,
+                EXPENSES_PAGE_TITLE,
                 "We didn't return to the Expense page"
         );
     }
 
     @Test
-    public void selectCategoryTest()
+    public void selectCategory()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
@@ -140,6 +220,15 @@ public class ExpensesPageTests extends CoreTestCase
 
         CategoriesPageObject CategoriesPageObject = CategoriesPageObjectFactory.get(driver);
         CategoriesPageObject.getTitle();
+        CategoriesPageObject.selectCategoryByName("Different");
 
+        String selected_category = CategoriesPageObject.getCategoryValue();
+        assertEquals(
+                selected_category,
+                "Different",
+                "Expected category didn't select"
+        );
     }
+
+
 }

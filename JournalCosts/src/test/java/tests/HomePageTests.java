@@ -32,79 +32,79 @@ public class HomePageTests extends CoreTestCase
         DEFAULT_SUM = "0.00";
 
     @Test
-    public void titleVerification()
+    public void mainTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getTitle();
 
         assertEquals(
-                MAIN_TITLE,
                 title_element,
+                MAIN_TITLE,
                 "Title of the Home page is incorrect."
         );
     }
 
     @Test
-    public void expensesTitleVerification()
+    public void expensesBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getExpenseTitle();
 
         assertEquals(
-                EXPENSES_BLOCK_TITLE,
                 title_element,
+                EXPENSES_BLOCK_TITLE,
                 "Expenses block title is incorrect."
         );
     }
 
     @Test
-    public void incomesTitleVerification()
+    public void incomesBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getIncomesTitle();
 
         assertEquals(
-                INCOMES_BLOCK_TITLE,
                 title_element,
+                INCOMES_BLOCK_TITLE,
                 "Incomes block title is incorrect."
         );
     }
 
     @Test
-    public void balanceTitleVerification()
+    public void balanceBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getBalanceTitle();
 
         assertEquals(
-                BALANCE_BLOCK_TITLE,
                 title_element,
+                BALANCE_BLOCK_TITLE,
                 "Balance block title is incorrect."
         );
     }
 
     @Test
-    public void allExpensesTitleVerification()
+    public void allExpensesBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getAllExpensesTitle();
 
         assertEquals(
-                ALL_EXPENSES_BLOCK_TITLE,
                 title_element,
+                ALL_EXPENSES_BLOCK_TITLE,
                 "All expenses block title is incorrect."
         );
     }
 
     @Test
-    public void allIncomesTitleVerification()
+    public void allIncomesBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getAllIncomesTitle();
 
         assertEquals(
-                ALL_INCOMES_BLOCK_TITLE,
                 title_element,
+                ALL_INCOMES_BLOCK_TITLE,
                 "All expenses block title is incorrect."
         );
     }
@@ -156,72 +156,72 @@ public class HomePageTests extends CoreTestCase
     }
 
     @Test
-    public void todayExpenseDefaultSum()
+    public void todayExpenseDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String today_expense_sum = HomePageObject.getTodayExpenseSum();
 
         assertEquals(
-                DEFAULT_SUM,
                 today_expense_sum,
+                DEFAULT_SUM,
                 "Default value of Today expense sum is incorrect."
         );
     }
 
     @Test
-    public void weekExpenseDefaultSum()
+    public void weekExpenseDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String week_expense_sum = HomePageObject.getWeekExpenseSum();
 
         assertEquals(
-                DEFAULT_SUM,
                 week_expense_sum,
+                DEFAULT_SUM,
                 "Default value of Week expense sum is incorrect."
         );
     }
 
     @Test
-    public void monthExpenseDefaultSum()
+    public void monthExpenseDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String week_expense_sum = HomePageObject.getMonthExpenseSum();
 
         assertEquals(
-                DEFAULT_SUM,
                 week_expense_sum,
+                DEFAULT_SUM,
                 "Default value of Month expense sum is incorrect."
         );
     }
 
     @Test
-    public void monthIncomesDefaultSum()
+    public void monthIncomesDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String week_expense_sum = HomePageObject.getMonthIncomesSum();
 
         assertEquals(
-                DEFAULT_SUM,
                 week_expense_sum,
+                DEFAULT_SUM,
                 "Default value of Month incomes sum is incorrect."
         );
     }
 
     @Test
-    public void balanceDefaultSum()
+    public void balanceDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String week_expense_sum = HomePageObject.getBalanceSum();
 
         assertEquals(
-                DEFAULT_SUM,
                 week_expense_sum,
+                DEFAULT_SUM,
                 "Default value of Balance sum is incorrect."
         );
     }
 
     @Test
-    public void addExpenseButtonTest()
+    public void openExpesePageByAddButton()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
@@ -230,14 +230,14 @@ public class HomePageTests extends CoreTestCase
         String title_element = ExpensesPageObject.getTitle();
 
         assertEquals(
-                EXPENSES_PAGE_TITLE,
                 title_element,
+                EXPENSES_PAGE_TITLE,
                 "Opened page is not 'Expense'"
         );
     }
 
     @Test
-    public void addIncomesButtonTest()
+    public void openIncomePageByAddButton()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddIncomesButton();
@@ -246,14 +246,14 @@ public class HomePageTests extends CoreTestCase
         String title_element = IncomesPageObject.getTitle();
 
         assertEquals(
-                INCOMES_PAGE_TITLE,
                 title_element,
+                INCOMES_PAGE_TITLE,
                 "Opened page is not 'Income'"
         );
     }
 
     @Test
-    public void viewBalanceButtonTest()
+    public void openBalancePageByViewBalanceButton()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickViewBalanceButton();
@@ -262,8 +262,8 @@ public class HomePageTests extends CoreTestCase
         String title_element = BalancePageObject.getTitle();
 
         assertEquals(
-                BALANCE_PAGE_TITLE,
                 title_element,
+                BALANCE_PAGE_TITLE,
                 "Opened page is not 'Year balance'"
         );
     }
