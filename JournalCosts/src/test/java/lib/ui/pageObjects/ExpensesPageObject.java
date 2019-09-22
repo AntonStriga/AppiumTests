@@ -25,7 +25,9 @@ abstract public class ExpensesPageObject extends MainPageObject
         TIME_PICKER_PM_BUTTON,
         CATEGORY_LINK,
         CATEGORY_BLOCK_TITLE,
-        AMOUNT_BLOCK_TITLE;
+        AMOUNT_BLOCK_TITLE,
+        CALCULATOR_LINK,
+        CURRENCY_BLOCK_TITLE;
 
     public ExpensesPageObject(RemoteWebDriver driver)
     {
@@ -157,5 +159,16 @@ abstract public class ExpensesPageObject extends MainPageObject
     {
         WebElement element = this.waitForTitleElement(AMOUNT_BLOCK_TITLE);
         return element.getAttribute("text");
+    }
+
+    public String getCurrencyBlockTitle()
+    {
+        WebElement element = this.waitForTitleElement(CURRENCY_BLOCK_TITLE);
+        return element.getAttribute("text");
+    }
+
+    public void openCalculator()
+    {
+        this.waitForElementAndClick(CALCULATOR_LINK,"Cannot find Calculator link by locator " + CALCULATOR_LINK);
     }
 }

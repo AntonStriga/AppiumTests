@@ -26,6 +26,8 @@ public class AndroidExpensesPageObject extends ExpensesPageObject
         CATEGORY_LINK = "id:com.vitvov.profit:id/transactionCategoryText";
         CATEGORY_BLOCK_TITLE = "xpath://*[@resource-id='com.vitvov.profit:id/transactionCategory']//*[@class='android.widget.TextView'][1]";
         AMOUNT_BLOCK_TITLE = "id:com.vitvov.profit:id/textView2";
+        CALCULATOR_LINK = "id:com.vitvov.profit:id/ibtCostCalc";
+        CURRENCY_BLOCK_TITLE = "xpath://*[@resource-id='com.vitvov.profit:id/transactionCurrency']//*[@class='android.widget.TextView'][1]";
     }
 
     public AndroidExpensesPageObject(RemoteWebDriver driver)

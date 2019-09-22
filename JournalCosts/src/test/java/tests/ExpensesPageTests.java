@@ -1,6 +1,8 @@
 package tests;
 
 import lib.CoreTestCase;
+import lib.ui.factories.CalculatorPageObjectFactory;
+import lib.ui.pageObjects.CalculatorPageObject;
 import lib.ui.pageObjects.CategoriesPageObject;
 import lib.ui.pageObjects.ExpensesPageObject;
 import lib.ui.pageObjects.HomePageObject;
@@ -19,7 +21,8 @@ public class ExpensesPageTests extends CoreTestCase
         DATA_PICKER_TITLE = "Date",
         TIME_PICKER_TITLE = "Time",
         CATEGORY_BLOCK_TITLE = "Category",
-        AMOUNT_BLOCK_TITLE = "Amount";
+        AMOUNT_BLOCK_TITLE = "Amount",
+        CURRENCY_BLOCK_TITLE = "Currency";
 
     @Test
     public void openExpensePageAndBack()
@@ -107,6 +110,24 @@ public class ExpensesPageTests extends CoreTestCase
                 title_element,
                 AMOUNT_BLOCK_TITLE,
                 "Title of the Amount block is incorrect."
+        );
+
+    }
+
+    @Test
+    public  void currencyBlockTitleVerification()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
+
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        String title_element = ExpensesPageObject.getCurrencyBlockTitle();
+
+        assertEquals(
+                title_element,
+                CURRENCY_BLOCK_TITLE,
+                "Title of the Currency block is incorrect."
         );
 
     }
@@ -230,5 +251,25 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
+    @Test
+    public void openCalculatorAndBack()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAddExpenseButton();
 
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        ExpensesPageObject.openCalculator();
+
+        CalculatorPageObject CalculatorPageObject = CalculatorPageObjectFactory.get(driver);
+        CalculatorPageObject.getTitle();
+        CalculatorPageObject.clickBackButton();
+
+        String title_element = ExpensesPageObject.getTitle();
+        assertEquals(
+                title_element,
+                EXPENSES_PAGE_TITLE,
+                "We didn't return to the Expense page"
+        );
+    }
 }
