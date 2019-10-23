@@ -15,15 +15,6 @@ import static org.testng.Assert.assertEquals;
 
 public class ExpensesPageTests extends CoreTestCase
 {
-    private static String
-        MAIN_TITLE = "Journal costs",
-        EXPENSES_PAGE_TITLE = "Expense",
-        DATA_PICKER_TITLE = "Date",
-        TIME_PICKER_TITLE = "Time",
-        CATEGORY_BLOCK_TITLE = "Category",
-        AMOUNT_BLOCK_TITLE = "Amount",
-        CURRENCY_BLOCK_TITLE = "Currency";
-
     @Test
     public void openExpensePageAndBack()
     {
@@ -37,7 +28,7 @@ public class ExpensesPageTests extends CoreTestCase
         String title_element = HomePageObject.getTitle();
         assertEquals(
                 title_element,
-                MAIN_TITLE,
+                HomePageObject.MAIN_TITLE,
                 "We didn't return to the main page"
         );
     }
@@ -54,7 +45,7 @@ public class ExpensesPageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                DATA_PICKER_TITLE,
+                ExpensesPageObject.DATA_PICKER_TITLE,
                 "Title of the Data Picker is incorrect."
         );
 
@@ -72,7 +63,7 @@ public class ExpensesPageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                TIME_PICKER_TITLE,
+                ExpensesPageObject.TIME_PICKER_TITLE,
                 "Title of the Time Picker is incorrect."
         );
 
@@ -90,7 +81,7 @@ public class ExpensesPageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                CATEGORY_BLOCK_TITLE,
+                ExpensesPageObject.CATEGORY_BLOCK_TITLE,
                 "Title of the Category block is incorrect."
         );
 
@@ -108,7 +99,7 @@ public class ExpensesPageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                AMOUNT_BLOCK_TITLE,
+                ExpensesPageObject.AMOUNT_BLOCK_TITLE,
                 "Title of the Amount block is incorrect."
         );
 
@@ -126,7 +117,7 @@ public class ExpensesPageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                CURRENCY_BLOCK_TITLE,
+                ExpensesPageObject.CURRENCY_BLOCK_TITLE,
                 "Title of the Currency block is incorrect."
         );
 
@@ -146,7 +137,7 @@ public class ExpensesPageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                EXPENSES_PAGE_TITLE,
+                ExpensesPageObject.MAIN_TITLE,
                 "We didn't close Date picker"
         );
     }
@@ -183,7 +174,7 @@ public class ExpensesPageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                EXPENSES_PAGE_TITLE,
+                ExpensesPageObject.MAIN_TITLE,
                 "We didn't close Date picker"
         );
     }
@@ -224,7 +215,7 @@ public class ExpensesPageTests extends CoreTestCase
         String title_element = ExpensesPageObject.getTitle();
         assertEquals(
                 title_element,
-                EXPENSES_PAGE_TITLE,
+                ExpensesPageObject.MAIN_TITLE,
                 "We didn't return to the Expense page"
         );
     }
@@ -268,8 +259,10 @@ public class ExpensesPageTests extends CoreTestCase
         String title_element = ExpensesPageObject.getTitle();
         assertEquals(
                 title_element,
-                EXPENSES_PAGE_TITLE,
+                ExpensesPageObject.MAIN_TITLE,
                 "We didn't return to the Expense page"
         );
     }
+
+    
 }

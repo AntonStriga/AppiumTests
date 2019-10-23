@@ -10,27 +10,12 @@ import lib.ui.factories.ExpensesPageObjectFactory;
 import lib.ui.factories.HomePageObjectFactory;
 import lib.ui.factories.IncomesPageObjectFactory;
 import org.testng.annotations.Test;
-
-import javax.xml.bind.ValidationException;
+import org.testng.asserts.SoftAssert;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class HomePageTests extends CoreTestCase
 {
-    private static String
-        MAIN_TITLE = "Journal costs",
-        EXPENSES_BLOCK_TITLE = "Expenses",
-        EXPENSES_PAGE_TITLE = "Expense",
-        INCOMES_BLOCK_TITLE = "Incomes",
-        INCOMES_PAGE_TITLE = "Income",
-        BALANCE_BLOCK_TITLE = "Balance",
-        BALANCE_PAGE_TITLE = "Year balance",
-        ALL_EXPENSES_BLOCK_TITLE = "All expenses",
-        ALL_INCOMES_BLOCK_TITLE = "All incomes",
-        DEFAULT_CURRENCY = "USD",
-        DEFAULT_SUM = "0.00";
-
     @Test
     public void mainTitleVerification()
     {
@@ -39,7 +24,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                MAIN_TITLE,
+                HomePageObject.MAIN_TITLE,
                 "Title of the Home page is incorrect."
         );
     }
@@ -52,7 +37,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                EXPENSES_BLOCK_TITLE,
+                HomePageObject.EXPENSES_BLOCK_TITLE,
                 "Expenses block title is incorrect."
         );
     }
@@ -65,7 +50,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                INCOMES_BLOCK_TITLE,
+                HomePageObject.INCOMES_BLOCK_TITLE,
                 "Incomes block title is incorrect."
         );
     }
@@ -78,7 +63,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                BALANCE_BLOCK_TITLE,
+                HomePageObject.BALANCE_BLOCK_TITLE,
                 "Balance block title is incorrect."
         );
     }
@@ -91,7 +76,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                ALL_EXPENSES_BLOCK_TITLE,
+                HomePageObject.ALL_EXPENSES_BLOCK_TITLE,
                 "All expenses block title is incorrect."
         );
     }
@@ -104,7 +89,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                ALL_INCOMES_BLOCK_TITLE,
+                HomePageObject.ALL_INCOMES_BLOCK_TITLE,
                 "All expenses block title is incorrect."
         );
     }
@@ -112,47 +97,27 @@ public class HomePageTests extends CoreTestCase
     @Test
     public void defaultCurrencyVerification()
     {
+        SoftAssert verification = new SoftAssert();
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        String default_currency_value;
-        boolean all_default_currencies_correct = true;
-
-        try {
-            default_currency_value = HomePageObject.getExpensesCurrencyValue();
-            if (!default_currency_value.equals(DEFAULT_CURRENCY)) {
-                throw new ValidationException("Default Expenses currency is not " + DEFAULT_CURRENCY + ".");
-            }
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            all_default_currencies_correct = false;
-        }
-
-        try {
-            default_currency_value = HomePageObject.getIncomesCurrencyValue();
-            if (!default_currency_value.equals(DEFAULT_CURRENCY)) {
-                throw new ValidationException("Default Incomes currency is not " + DEFAULT_CURRENCY + ".");
-            }
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            all_default_currencies_correct = false;
-        }
-
-        try {
-            default_currency_value = HomePageObject.getBalanceCurrencyValue();
-            if (!default_currency_value.equals(DEFAULT_CURRENCY)) {
-                throw new ValidationException("Default Balance currency is not " + DEFAULT_CURRENCY + ".");
-            }
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            all_default_currencies_correct = false;
-        }
-
-        assertTrue(
-                all_default_currencies_correct,
-                "Default values of currency are not correct."
+        String currency_value = HomePageObject.getExpensesCurrencyValue();
+        verification.assertEquals(
+                currency_value,
+                HomePageObject.DEFAULT_CURRENCY,
+                "Default Expenses currency is incorrect."
         );
+        currency_value = HomePageObject.getIncomesCurrencyValue();
+        verification.assertEquals(
+                currency_value,
+                HomePageObject.DEFAULT_CURRENCY,
+                "Default Incomes currency is incorrect."
+        );
+        currency_value = HomePageObject.getBalanceCurrencyValue();
+        verification.assertEquals(
+                currency_value,
+                HomePageObject.DEFAULT_CURRENCY,
+                "Default Balance currency is incorrect."
+        );
+        verification.assertAll();
     }
 
     @Test
@@ -163,7 +128,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 today_expense_sum,
-                DEFAULT_SUM,
+                HomePageObject.DEFAULT_SUM,
                 "Default value of Today expense sum is incorrect."
         );
     }
@@ -176,7 +141,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 week_expense_sum,
-                DEFAULT_SUM,
+                HomePageObject.DEFAULT_SUM,
                 "Default value of Week expense sum is incorrect."
         );
     }
@@ -189,7 +154,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 week_expense_sum,
-                DEFAULT_SUM,
+                HomePageObject.DEFAULT_SUM,
                 "Default value of Month expense sum is incorrect."
         );
     }
@@ -202,7 +167,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 week_expense_sum,
-                DEFAULT_SUM,
+                HomePageObject.DEFAULT_SUM,
                 "Default value of Month incomes sum is incorrect."
         );
     }
@@ -215,7 +180,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 week_expense_sum,
-                DEFAULT_SUM,
+                HomePageObject.DEFAULT_SUM,
                 "Default value of Balance sum is incorrect."
         );
     }
@@ -231,7 +196,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                EXPENSES_PAGE_TITLE,
+                ExpensesPageObject.MAIN_TITLE,
                 "Opened page is not 'Expense'"
         );
     }
@@ -247,7 +212,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                INCOMES_PAGE_TITLE,
+                IncomesPageObject.MAIN_TITLE,
                 "Opened page is not 'Income'"
         );
     }
@@ -263,7 +228,7 @@ public class HomePageTests extends CoreTestCase
 
         assertEquals(
                 title_element,
-                BALANCE_PAGE_TITLE,
+                BalancePageObject.MAIN_TITLE,
                 "Opened page is not 'Year balance'"
         );
     }

@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class iOSExpensesPageObject extends ExpensesPageObject
 {
     static {
-        TITLE = "";
+        MAIN_TITLE_LOCATOR = "";
     }
 
     public iOSExpensesPageObject(RemoteWebDriver driver)

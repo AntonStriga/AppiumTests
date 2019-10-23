@@ -5,8 +5,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 abstract public class IncomesPageObject extends MainPageObject
 {
+    public final String
+            MAIN_TITLE = "Income";
+
     protected static String
-        TITLE;
+            MAIN_TITLE_LOCATOR;
 
     public IncomesPageObject (RemoteWebDriver driver)
     {
@@ -15,7 +18,7 @@ abstract public class IncomesPageObject extends MainPageObject
 
     public String getTitle()
     {
-        WebElement title_element = this.waitForTitleElement(TITLE);
+        WebElement title_element = this.waitForTitleElement(MAIN_TITLE_LOCATOR);
         return title_element.getAttribute("text");
     }
 }

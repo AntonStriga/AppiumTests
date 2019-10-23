@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class iOSBalancePageObject extends BalancePageObject
 {
     static {
-        TITLE = "";
+        MAIN_TITLE_LOCATOR = "";
     }
     public iOSBalancePageObject(RemoteWebDriver driver)
     {

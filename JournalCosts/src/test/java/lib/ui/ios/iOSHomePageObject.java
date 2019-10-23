@@ -7,7 +7,7 @@ public class iOSHomePageObject extends HomePageObject
 
 {
     static {
-        TITLE = "";
+        MAIN_TITLE_LOCATOR = "";
     }
 
     public iOSHomePageObject(RemoteWebDriver driver)
