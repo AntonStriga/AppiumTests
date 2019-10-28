@@ -22,7 +22,7 @@ public class AndroidHomePageObject extends HomePageObject
         INCOME_CURRENCY_VALUE_LOCATOR = "id:com.vitvov.profit:id/tvMainCurrency2";
         BALANCE_CURRENCY_VALUE_LOCATOR = "id:com.vitvov.profit:id/tvMainCurrency3";
         MONTH_INCOMES_SUM_LOCATOR = "xpath://*[@resource-id='com.vitvov.profit:id/profitListView']//*[@text='Month']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
-        BALANCE_SUM_LOCATOR = "xpath://*[@resource-id='com.vitvov.profit:id/balanceListView']//*[@text='Month']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
+        BALANCE_SUM_LOCATOR = "xpath://*[@resource-id='com.vitvov.profit:id/balanceListView']//*[@text='All Time']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
     }
 
     public AndroidHomePageObject(RemoteWebDriver driver)
