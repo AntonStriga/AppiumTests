@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="Test1"   >
+        <classes>
+            <class name="tests.HomePageTests">
+                <methods>
+                    <exclude name="expensesBlockTitleVerification"/>
+                    <exclude name="openBalancePageByViewBalanceButton"/>
+                    <exclude name="mainTitleVerification"/>
+                </methods>
+            </class>
+            <class name="tests.ExpensesPageTests">
+                <methods>
+                    <exclude name="selectCategory"/>
+                    <exclude name="currencyBlockTitleVerification"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
