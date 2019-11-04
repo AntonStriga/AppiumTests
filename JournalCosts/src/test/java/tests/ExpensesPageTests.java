@@ -33,7 +33,7 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void datePickerTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -51,7 +51,7 @@ public class ExpensesPageTests extends CoreTestCase
 
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void timePickerTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -69,7 +69,7 @@ public class ExpensesPageTests extends CoreTestCase
 
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void categoryBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -87,7 +87,7 @@ public class ExpensesPageTests extends CoreTestCase
 
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void amountBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -105,7 +105,7 @@ public class ExpensesPageTests extends CoreTestCase
 
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void currencyBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -142,7 +142,7 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void setDateInDataPicker()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -179,7 +179,7 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void setTimeInTimePicker()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -220,7 +220,7 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void selectCategory()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);

@@ -10,14 +10,14 @@ public class CoreTestCase {
 
     protected RemoteWebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true)
     protected void setUp() throws Exception
     {
         driver = Platform.getInstance().getDriver();
         this.rotateScreenPortrait();
     }
 
-    @AfterMethod
+    @AfterMethod (alwaysRun = true)
     protected void tearDown() {
         driver.quit();
     }
