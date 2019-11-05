@@ -14,12 +14,14 @@ public class CoreTestCase {
     protected void setUp() throws Exception
     {
         // zzz - for experiment
+        System.out.println("-- setUp before method --"); // only for playing with Git
         driver = Platform.getInstance().getDriver();
         this.rotateScreenPortrait();
     }
 
     @AfterMethod
     protected void tearDown() {
+        System.out.println("-- driver quit --"); // only for playing with Git
         driver.quit();
     }
 
