@@ -16,7 +16,7 @@ import static org.testng.Assert.assertEquals;
 
 public class ExpensesPageTests extends CoreTestCase
 {
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true)
     private void preconditions()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);

@@ -1,27 +1,27 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite1" verbose="1" >
-    <test name="SmokeHome 1">
-        <groups>
-            <run>
-                <include name="smoke"  />
-            </run>
-        </groups>
+<test name="SmokeHome 1">
+    <groups>
+        <run>
+            <include name="smoke"  />
+        </run>
+    </groups>
 
-        <classes>
-            <class name="tests.HomePageTests"/>
-        </classes>
-    </test>
+    <classes>
+        <class name="tests.HomePageTests"/>
+    </classes>
+</test>
 
-    <test name="TitleExpense 1">
-        <groups>
-            <run>
-                <include name="title"  />
-            </run>
-        </groups>
+<test name="TitleExpense 1">
+    <groups>
+        <run>
+            <include name="title"  />
+        </run>
+    </groups>
 
-        <classes>
-            <class name="tests.ExpensesPageTests"/>
-        </classes>
-    </test>
+    <classes>
+        <class name="tests.ExpensesPageTests"/>
+    </classes>
+</test>
 </suite>
