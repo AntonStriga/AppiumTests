@@ -20,6 +20,7 @@ public class CoreTestCase {
 
     @AfterMethod
     protected void tearDown() {
+        System.out.println("-- driver quit --"); // only for playing with Git
         driver.quit();
     }
 
