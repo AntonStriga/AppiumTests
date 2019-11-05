@@ -13,6 +13,7 @@ public class CoreTestCase {
     @BeforeMethod
     protected void setUp() throws Exception
     {
+        System.out.println("-- setUp before method --"); // only for playing with Git
         driver = Platform.getInstance().getDriver();
         this.rotateScreenPortrait();
     }
