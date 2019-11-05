@@ -10,9 +10,18 @@ public class CoreTestCase {
 
     protected RemoteWebDriver driver;
 
-    @BeforeMethod (alwaysRun = true)
+    @BeforeMethod (groups = "title")
     protected void setUp() throws Exception
     {
+        System.out.println("-- setUp for title --");
+        driver = Platform.getInstance().getDriver();
+        this.rotateScreenPortrait();
+    }
+
+    @BeforeMethod (groups = "smoke")
+    protected void setUpForSmoke() throws Exception
+    {
+        System.out.println("-- setUp for Smoke --");
         driver = Platform.getInstance().getDriver();
         this.rotateScreenPortrait();
     }
