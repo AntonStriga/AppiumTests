@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="Test 1"   >
+        <classes>
+            <class name="tests.ExpensesPageTests">
+                <methods>
+                    <include name="timePickerTitleVerification"/>
+                    <include name="amountBlockTitleVerification"/>
+                    <include name="setDateInDataPicker"/>
+                </methods>
+            </class>
+            <class name="tests.HomePageTests">
+                <methods>
+                    <exclude name="mainTitleVerification"/>
+                    <exclude name="expensesBlockTitleVerification"/>
+                    <exclude name="balanceBlockTitleVerification"/>
+                    <exclude name="allIncomesBlockTitleVerification"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
