@@ -13,6 +13,7 @@ public class CoreTestCase {
     @BeforeMethod
     protected void setUp() throws Exception
     {
+        // zzz - for experiment
         driver = Platform.getInstance().getDriver();
         this.rotateScreenPortrait();
     }
