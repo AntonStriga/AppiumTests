@@ -16,9 +16,10 @@ import static org.testng.Assert.assertEquals;
 
 public class HomePageTests extends CoreTestCase
 {
-    @Test (groups = {"title","smoke"})
+    @Test (priority = 5)
     public void mainTitleVerification()
     {
+        System.out.println("test-1, priority = 5");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getTitle();
 
@@ -29,9 +30,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"title"})
+    @Test (priority = 5)
     public void expensesBlockTitleVerification()
     {
+        System.out.println("test-2, priority = 5");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getExpenseTitle();
 
@@ -42,9 +44,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"title"})
+    @Test (priority = 4)
     public void incomesBlockTitleVerification()
     {
+        System.out.println("test-3, priority = 4");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getIncomesTitle();
 
@@ -55,9 +58,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"title"})
+    @Test (priority = 6)
     public void balanceBlockTitleVerification()
     {
+        System.out.println("test-5, priority = 6");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getBalanceTitle();
 
@@ -68,9 +72,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"title"})
+    @Test (priority = 5)
     public void allExpensesBlockTitleVerification()
     {
+        System.out.println("test-7, priority = 5");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getAllExpensesTitle();
 
@@ -81,9 +86,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"title"})
+    @Test (priority = 4)
     public void allIncomesBlockTitleVerification()
     {
+        System.out.println("test-8, priority = 4");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getAllIncomesTitle();
 
@@ -94,9 +100,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"default"})
+    @Test (priority = 2)
     public void defaultCurrencyVerification()
     {
+        System.out.println("test-9, priority = 2");
         SoftAssert verification = new SoftAssert();
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String currency_value = HomePageObject.getExpensesCurrencyValue();
@@ -120,9 +127,10 @@ public class HomePageTests extends CoreTestCase
         verification.assertAll();
     }
 
-    @Test (groups = {"default"})
+    @Test ()
     public void todayExpenseDefaultSumVerification()
     {
+        System.out.println("test-10, priority = ---");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String today_expense_sum = HomePageObject.getTodayExpenseSum();
 
@@ -133,9 +141,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"default"})
+    @Test (priority = 1)
     public void weekExpenseDefaultSumVerification()
     {
+        System.out.println("test-11, priority = 1");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String week_expense_sum = HomePageObject.getWeekExpenseSum();
 
@@ -146,9 +155,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"default"})
+    @Test (priority = 1)
     public void monthExpenseDefaultSumVerification()
     {
+        System.out.println("test-12, priority = 1");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String week_expense_sum = HomePageObject.getMonthExpenseSum();
 
@@ -159,9 +169,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"default"})
+    @Test (priority = 1)
     public void monthIncomesDefaultSumVerification()
     {
+        System.out.println("test-13, priority = 1");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String week_expense_sum = HomePageObject.getMonthIncomesSum();
 
@@ -172,9 +183,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"default"})
+    @Test (priority = 3)
     public void balanceDefaultSumVerification()
     {
+        System.out.println("test-14, priority = 3");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String week_expense_sum = HomePageObject.getBalanceSum();
 
@@ -185,9 +197,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"smoke"})
+    @Test (priority = 0)
     public void openExpesePageByAddButton()
     {
+        System.out.println("test-15, priority = 0");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
 
@@ -201,9 +214,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"smoke"})
+    @Test (priority = 0)
     public void openIncomePageByAddButton()
     {
+        System.out.println("test-16, priority = 0");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddIncomesButton();
 
@@ -217,9 +231,10 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"smoke"})
+    @Test (priority = 0)
     public void openBalancePageByViewBalanceButton()
     {
+        System.out.println("test-17, priority = 0");
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickViewBalanceButton();
 
