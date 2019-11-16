@@ -16,7 +16,7 @@ import static org.testng.Assert.assertEquals;
 
 public class HomePageTests extends CoreTestCase
 {
-    @Test
+    @Test (groups = {"title","smoke"})
     public void mainTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -29,7 +29,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"title"})
     public void expensesBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -42,7 +42,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"title"})
     public void incomesBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -55,7 +55,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"title"})
     public void balanceBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -68,7 +68,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"title"})
     public void allExpensesBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -81,7 +81,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"title"})
     public void allIncomesBlockTitleVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -94,7 +94,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"default"})
     public void defaultCurrencyVerification()
     {
         SoftAssert verification = new SoftAssert();
@@ -120,7 +120,7 @@ public class HomePageTests extends CoreTestCase
         verification.assertAll();
     }
 
-    @Test
+    @Test (groups = {"default"})
     public void todayExpenseDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -133,7 +133,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"default"})
     public void weekExpenseDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -146,7 +146,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"default"})
     public void monthExpenseDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -159,7 +159,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"default"})
     public void monthIncomesDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -172,7 +172,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"default"})
     public void balanceDefaultSumVerification()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -185,7 +185,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void openExpesePageByAddButton()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -201,7 +201,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void openIncomePageByAddButton()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
@@ -217,7 +217,7 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void openBalancePageByViewBalanceButton()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);

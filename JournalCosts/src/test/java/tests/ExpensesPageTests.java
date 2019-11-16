@@ -9,22 +9,31 @@ import lib.ui.pageObjects.HomePageObject;
 import lib.ui.factories.CategoriesPageObjectFactory;
 import lib.ui.factories.ExpensesPageObjectFactory;
 import lib.ui.factories.HomePageObjectFactory;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 public class ExpensesPageTests extends CoreTestCase
 {
-    @Test
-    public void openExpensePageAndBack()
+    @BeforeMethod
+    private void preconditions()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         HomePageObject.clickAddExpenseButton();
+    }
+
+    @Test
+    public void openExpensePageAndBack()
+    {
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         ExpensesPageObject.clickBackButton();
 
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getTitle();
         assertEquals(
                 title_element,
@@ -33,11 +42,11 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void datePickerTitleVerification()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -51,11 +60,11 @@ public class ExpensesPageTests extends CoreTestCase
 
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void timePickerTitleVerification()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -69,11 +78,11 @@ public class ExpensesPageTests extends CoreTestCase
 
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void categoryBlockTitleVerification()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -87,11 +96,11 @@ public class ExpensesPageTests extends CoreTestCase
 
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void amountBlockTitleVerification()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -105,11 +114,11 @@ public class ExpensesPageTests extends CoreTestCase
 
     }
 
-    @Test
+    @Test (groups = {"title"})
     public  void currencyBlockTitleVerification()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -126,8 +135,8 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openDatePickerAndCancel()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -142,11 +151,11 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void setDateInDataPicker()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -163,8 +172,8 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openTimePickerAndCancel()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -179,11 +188,11 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void setTimeInTimePicker()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -201,8 +210,8 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openCategoryAndCancel()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -220,11 +229,11 @@ public class ExpensesPageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"smoke"})
     public void selectCategory()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -245,8 +254,8 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openCalculatorAndBack()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
 
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
@@ -263,6 +272,4 @@ public class ExpensesPageTests extends CoreTestCase
                 "We didn't return to the Expense page"
         );
     }
-
-    
 }
