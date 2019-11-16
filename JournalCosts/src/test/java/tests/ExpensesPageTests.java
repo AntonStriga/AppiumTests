@@ -26,9 +26,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openExpensePageAndBack()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         ExpensesPageObject.clickBackButton();
@@ -45,9 +42,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"title"})
     public  void datePickerTitleVerification()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         String title_element = ExpensesPageObject.getDataPickerTitle();
@@ -63,9 +57,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"title"})
     public  void timePickerTitleVerification()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         String title_element = ExpensesPageObject.getTimePickerTitle();
@@ -81,9 +72,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"title"})
     public  void categoryBlockTitleVerification()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         String title_element = ExpensesPageObject.getCategoryBlockTitle();
