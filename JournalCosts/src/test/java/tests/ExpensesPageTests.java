@@ -99,9 +99,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"title"})
     public  void amountBlockTitleVerification()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         String title_element = ExpensesPageObject.getAmountBlockTitle();
@@ -117,9 +114,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"title"})
     public  void currencyBlockTitleVerification()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         String title_element = ExpensesPageObject.getCurrencyBlockTitle();
@@ -135,9 +129,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openDatePickerAndCancel()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         ExpensesPageObject.openDatePicker();
@@ -154,9 +145,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"smoke"})
     public void setDateInDataPicker()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         String selected_date = ExpensesPageObject.setDate();
@@ -172,9 +160,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openTimePickerAndCancel()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         ExpensesPageObject.openTimePicker();
@@ -191,9 +176,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"smoke"})
     public void setTimeInTimePicker()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         String selected_time = "22:35";
@@ -210,9 +192,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openCategoryAndCancel()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         ExpensesPageObject.openCategory();
@@ -232,9 +211,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"smoke"})
     public void selectCategory()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         ExpensesPageObject.openCategory();
@@ -254,9 +230,6 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openCalculatorAndBack()
     {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
-
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
         ExpensesPageObject.getTitle();
         ExpensesPageObject.openCalculator();
