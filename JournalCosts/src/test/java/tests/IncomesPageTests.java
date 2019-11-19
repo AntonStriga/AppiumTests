@@ -35,5 +35,45 @@ public class IncomesPageTests extends CoreTestCase
         );
     }
 
+    @Test (groups = {"title"})
+    public  void datePickerTitleVerification()
+    {
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String title_element = IncomesPageObject.getDataPickerTitle();
 
+        assertEquals(
+                title_element,
+                IncomesPageObject.DATA_PICKER_TITLE,
+                "Title of the Data Picker is incorrect."
+        );
+    }
+
+    @Test (groups = {"title"})
+    public  void timePickerTitleVerification()
+    {
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String title_element = IncomesPageObject.getTimePickerTitle();
+
+        assertEquals(
+                title_element,
+                IncomesPageObject.TIME_PICKER_TITLE,
+                "Title of the Time Picker is incorrect."
+        );
+    }
+
+    @Test (groups = {"title"})
+    public  void categoryBlockTitleVerification()
+    {
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String title_element = IncomesPageObject.getCategoryBlockTitle();
+
+        assertEquals(
+                title_element,
+                IncomesPageObject.CATEGORY_BLOCK_TITLE,
+                "Title of the Category block is incorrect."
+        );
+    }
 }

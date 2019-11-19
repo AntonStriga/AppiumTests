@@ -66,7 +66,6 @@ public class ExpensesPageTests extends CoreTestCase
                 ExpensesPageObject.TIME_PICKER_TITLE,
                 "Title of the Time Picker is incorrect."
         );
-
     }
 
     @Test (groups = {"title"})
@@ -81,7 +80,6 @@ public class ExpensesPageTests extends CoreTestCase
                 ExpensesPageObject.CATEGORY_BLOCK_TITLE,
                 "Title of the Category block is incorrect."
         );
-
     }
 
     @Test (groups = {"title"})
