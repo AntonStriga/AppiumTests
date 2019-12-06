@@ -2,33 +2,33 @@ package tests;
 
 import lib.CoreTestCase;
 import lib.ui.factories.CalculatorPageObjectFactory;
+import lib.ui.factories.CategoriesPageObjectFactory;
+import lib.ui.factories.HomePageObjectFactory;
+import lib.ui.factories.IncomesPageObjectFactory;
 import lib.ui.pageObjects.CalculatorPageObject;
 import lib.ui.pageObjects.CategoriesPageObject;
-import lib.ui.pageObjects.ExpensesPageObject;
 import lib.ui.pageObjects.HomePageObject;
-import lib.ui.factories.CategoriesPageObjectFactory;
-import lib.ui.factories.ExpensesPageObjectFactory;
-import lib.ui.factories.HomePageObjectFactory;
+import lib.ui.pageObjects.IncomesPageObject;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class ExpensesPageTests extends CoreTestCase
+public class IncomesPageTests extends CoreTestCase
 {
     @BeforeMethod
-    private void preconditions()
+    private void precondition()
     {
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
+        HomePageObject.clickAddIncomesButton();
     }
 
     @Test
-    public void openExpensePageAndBack()
+    public void openIncomesPageAndBack()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        ExpensesPageObject.clickBackButton();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        IncomesPageObject.clickBackButton();
 
         HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
         String title_element = HomePageObject.getTitle();
@@ -42,28 +42,27 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"title"})
     public  void datePickerTitleVerification()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        String title_element = ExpensesPageObject.getDataPickerTitle();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String title_element = IncomesPageObject.getDataPickerTitle();
 
         assertEquals(
                 title_element,
-                ExpensesPageObject.DATA_PICKER_TITLE,
+                IncomesPageObject.DATA_PICKER_TITLE,
                 "Title of the Data Picker is incorrect."
         );
-
     }
 
     @Test (groups = {"title"})
     public  void timePickerTitleVerification()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        String title_element = ExpensesPageObject.getTimePickerTitle();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String title_element = IncomesPageObject.getTimePickerTitle();
 
         assertEquals(
                 title_element,
-                ExpensesPageObject.TIME_PICKER_TITLE,
+                IncomesPageObject.TIME_PICKER_TITLE,
                 "Title of the Time Picker is incorrect."
         );
     }
@@ -71,13 +70,13 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"title"})
     public  void categoryBlockTitleVerification()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        String title_element = ExpensesPageObject.getCategoryBlockTitle();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String title_element = IncomesPageObject.getCategoryBlockTitle();
 
         assertEquals(
                 title_element,
-                ExpensesPageObject.CATEGORY_BLOCK_TITLE,
+                IncomesPageObject.CATEGORY_BLOCK_TITLE,
                 "Title of the Category block is incorrect."
         );
     }
@@ -85,45 +84,43 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"title"})
     public  void amountBlockTitleVerification()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        String title_element = ExpensesPageObject.getAmountBlockTitle();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String title_element = IncomesPageObject.getAmountBlockTitle();
 
         assertEquals(
                 title_element,
-                ExpensesPageObject.AMOUNT_BLOCK_TITLE,
+                IncomesPageObject.AMOUNT_BLOCK_TITLE,
                 "Title of the Amount block is incorrect."
         );
-
     }
 
     @Test (groups = {"title"})
     public  void currencyBlockTitleVerification()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        String title_element = ExpensesPageObject.getCurrencyBlockTitle();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String title_element = IncomesPageObject.getCurrencyBlockTitle();
 
         assertEquals(
                 title_element,
-                ExpensesPageObject.CURRENCY_BLOCK_TITLE,
+                IncomesPageObject.CURRENCY_BLOCK_TITLE,
                 "Title of the Currency block is incorrect."
         );
-
     }
 
     @Test
     public void openDatePickerAndCancel()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        ExpensesPageObject.openDatePicker();
-        ExpensesPageObject.cancelDatePicker();
-        String title_element = ExpensesPageObject.getTitle();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        IncomesPageObject.openDatePicker();
+        IncomesPageObject.cancelDatePicker();
+        String title_element = IncomesPageObject.getTitle();
 
         assertEquals(
                 title_element,
-                ExpensesPageObject.MAIN_TITLE,
+                IncomesPageObject.MAIN_TITLE,
                 "We didn't close Date picker"
         );
     }
@@ -131,10 +128,10 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"smoke"})
     public void setDateInDataPicker()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        String selected_date = ExpensesPageObject.setDate();
-        String expense_date = ExpensesPageObject.getDate();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        String selected_date = IncomesPageObject.setDate();
+        String expense_date = IncomesPageObject.getDate();
 
         assertEquals(
                 expense_date,
@@ -146,15 +143,15 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openTimePickerAndCancel()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        ExpensesPageObject.openTimePicker();
-        ExpensesPageObject.cancelTimePicker();
-        String title_element = ExpensesPageObject.getTitle();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        IncomesPageObject.openTimePicker();
+        IncomesPageObject.cancelTimePicker();
+        String title_element = IncomesPageObject.getTitle();
 
         assertEquals(
                 title_element,
-                ExpensesPageObject.MAIN_TITLE,
+                IncomesPageObject.MAIN_TITLE,
                 "We didn't close Date picker"
         );
     }
@@ -162,11 +159,11 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"smoke"})
     public void setTimeInTimePicker()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
         String selected_time = "22:35";
-        ExpensesPageObject.setTime();
-        String result_time = ExpensesPageObject.getTime();
+        IncomesPageObject.setTime();
+        String result_time = IncomesPageObject.getTime();
 
         assertEquals(
                 result_time,
@@ -178,18 +175,18 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openCategoryAndCancel()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        ExpensesPageObject.openCategory();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        IncomesPageObject.openCategory();
 
         CategoriesPageObject CategoriesPageObject = CategoriesPageObjectFactory.get(driver);
         CategoriesPageObject.getTitle();
         CategoriesPageObject.clickBackButton();
 
-        String title_element = ExpensesPageObject.getTitle();
+        String title_element = IncomesPageObject.getTitle();
         assertEquals(
                 title_element,
-                ExpensesPageObject.MAIN_TITLE,
+                IncomesPageObject.MAIN_TITLE,
                 "We didn't return to the Expense page"
         );
     }
@@ -197,18 +194,18 @@ public class ExpensesPageTests extends CoreTestCase
     @Test (groups = {"smoke"})
     public void selectCategory()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        ExpensesPageObject.openCategory();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        IncomesPageObject.openCategory();
 
         CategoriesPageObject CategoriesPageObject = CategoriesPageObjectFactory.get(driver);
         CategoriesPageObject.getTitle();
-        CategoriesPageObject.selectCategoryByName("Different");
+        CategoriesPageObject.selectCategoryByName("Premium");
 
         String selected_category = CategoriesPageObject.getCategoryValue();
         assertEquals(
                 selected_category,
-                "Different",
+                "Premium",
                 "Expected category didn't select"
         );
     }
@@ -216,18 +213,18 @@ public class ExpensesPageTests extends CoreTestCase
     @Test
     public void openCalculatorAndBack()
     {
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        ExpensesPageObject.getTitle();
-        ExpensesPageObject.openCalculator();
+        IncomesPageObject IncomesPageObject = IncomesPageObjectFactory.get(driver);
+        IncomesPageObject.getTitle();
+        IncomesPageObject.openCalculator();
 
         CalculatorPageObject CalculatorPageObject = CalculatorPageObjectFactory.get(driver);
         CalculatorPageObject.getTitle();
         CalculatorPageObject.clickBackButton();
 
-        String title_element = ExpensesPageObject.getTitle();
+        String title_element = IncomesPageObject.getTitle();
         assertEquals(
                 title_element,
-                ExpensesPageObject.MAIN_TITLE,
+                IncomesPageObject.MAIN_TITLE,
                 "We didn't return to the Expense page"
         );
     }
