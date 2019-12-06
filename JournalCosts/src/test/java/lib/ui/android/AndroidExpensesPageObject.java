@@ -28,6 +28,8 @@ public class AndroidExpensesPageObject extends ExpensesPageObject
         AMOUNT_BLOCK_TITLE_LOCATOR = "id:com.vitvov.profit:id/textView2";
         CALCULATOR_LINK_LOCATOR = "id:com.vitvov.profit:id/ibtCostCalc";
         CURRENCY_BLOCK_TITLE_LOCATOR = "xpath://*[@resource-id='com.vitvov.profit:id/transactionCurrency']//*[@class='android.widget.TextView'][1]";
+        ENTER_SUM_LOCATOR = "id:com.vitvov.profit:id/etCostCash";
+        COMMENT_FIELD_LOCATOR = "id:com.vitvov.profit:id/etCostComment";
     }
 
     public AndroidExpensesPageObject(RemoteWebDriver driver)
