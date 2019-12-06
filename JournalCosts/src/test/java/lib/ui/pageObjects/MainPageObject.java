@@ -32,6 +32,12 @@ public class MainPageObject
         element.click();
     }
 
+    public void waitForElementAndSendKeys(String locator, String value, String error_message)
+    {
+        WebElement element = this.waitForElementPresent(locator, error_message);
+        element.sendKeys(value);
+    }
+
     public WebElement waitForTitleElement(String locator)
     {
         return this.waitForElementPresent(locator, "Cannot find title element by locator "+ locator);
