@@ -35,7 +35,9 @@ abstract public class ExpensesPageObject extends MainPageObject
             CATEGORY_BLOCK_TITLE_LOCATOR,
             AMOUNT_BLOCK_TITLE_LOCATOR,
             CALCULATOR_LINK_LOCATOR,
-            CURRENCY_BLOCK_TITLE_LOCATOR;
+            CURRENCY_BLOCK_TITLE_LOCATOR,
+            ENTER_SUM_LOCATOR,
+            COMMENT_FIELD_LOCATOR;
 
     public ExpensesPageObject(RemoteWebDriver driver)
     {
@@ -178,5 +180,27 @@ abstract public class ExpensesPageObject extends MainPageObject
     public void openCalculator()
     {
         this.waitForElementAndClick(CALCULATOR_LINK_LOCATOR,"Cannot find Calculator link by locator " + CALCULATOR_LINK_LOCATOR);
+    }
+
+    public void setAmmountSum(String amount_sum)
+    {
+        this.waitForElementAndSendKeys(ENTER_SUM_LOCATOR, amount_sum, "Cannot find Enter sum field by locator " +  ENTER_SUM_LOCATOR);
+    }
+
+    public void setComment(String comment)
+    {
+        this.waitForElementAndSendKeys(COMMENT_FIELD_LOCATOR, comment, "Cannot find Comment field by locator " + COMMENT_FIELD_LOCATOR);
+    }
+
+    public String getAmountSumValue()
+    {
+        WebElement element = this.waitForElementPresent(ENTER_SUM_LOCATOR, "Cannot find Enter sum field by locator " +  ENTER_SUM_LOCATOR);
+        return element.getAttribute("text");
+    }
+
+    public String getComment()
+    {
+        WebElement element = this.waitForElementPresent(COMMENT_FIELD_LOCATOR,"Cannot find Comment field by locator " + COMMENT_FIELD_LOCATOR);
+        return element.getAttribute("text");
     }
 }
