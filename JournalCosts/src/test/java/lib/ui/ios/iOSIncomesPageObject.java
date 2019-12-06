@@ -7,6 +7,7 @@ public class iOSIncomesPageObject extends IncomesPageObject
 {
     static {
         MAIN_TITLE_LOCATOR = "";
+        BACK_BUTTON_LOCATOR = "";
     }
     public iOSIncomesPageObject(RemoteWebDriver driver) {
         super(driver);
