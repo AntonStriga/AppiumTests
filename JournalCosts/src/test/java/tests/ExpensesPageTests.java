@@ -18,6 +18,7 @@ import org.testng.asserts.SoftAssert;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import static org.testng.Assert.assertEquals;
 
@@ -296,9 +297,19 @@ public class ExpensesPageTests extends CoreTestCase
     public Iterator<Object[]> testData()
     {
         List<Object[]> data = new ArrayList<Object[]>();
-        data.add(new Object[]{"123","comment"});
-        data.add(new Object[]{"1222.23","new comment"});
-        data.add(new Object[]{"564654897","sdfsdgdsgsdgv  comment"});
+        for (int i = 0; i < 10; i++) {
+            data.add(new Object[]{generateSum(), generateComment()});
+        }        
         return data.iterator();
+    }
+
+    private Object generateComment() {
+        Object data = new Random().nextInt();
+        return "comment" + data.toString();
+    }
+
+    private Object generateSum() {
+        Object data = new Random().nextFloat() * 10000;
+        return data.toString();
     }
 }
