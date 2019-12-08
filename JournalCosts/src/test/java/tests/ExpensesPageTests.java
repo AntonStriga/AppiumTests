@@ -10,9 +10,14 @@ import lib.ui.factories.CategoriesPageObjectFactory;
 import lib.ui.factories.ExpensesPageObjectFactory;
 import lib.ui.factories.HomePageObjectFactory;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
@@ -259,5 +264,41 @@ public class ExpensesPageTests extends CoreTestCase
         );
 
         verification.assertAll();
+    }
+
+    @Test (dataProvider = "testData")
+    public void testDataProvider (String amount_sum, String comment)
+    {
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        ExpensesPageObject.setAmmountSum(amount_sum);
+        ExpensesPageObject.setComment(comment);
+
+        SoftAssert verification = new SoftAssert();
+        String resultSum = ExpensesPageObject.getAmountSumValue();
+        verification.assertEquals(
+                resultSum,
+                amount_sum,
+                "Sum was not send correctly"
+        );
+
+        String resultComment = ExpensesPageObject.getComment();
+        verification.assertEquals(
+                resultComment,
+                comment,
+                "Comment was not send correctly"
+        );
+
+        verification.assertAll();
+    }
+
+    @DataProvider
+    public Iterator<Object[]> testData()
+    {
+        List<Object[]> data = new ArrayList<Object[]>();
+        data.add(new Object[]{"123","comment"});
+        data.add(new Object[]{"1222.23","new comment"});
+        data.add(new Object[]{"564654897","sdfsdgdsgsdgv  comment"});
+        return data.iterator();
     }
 }
