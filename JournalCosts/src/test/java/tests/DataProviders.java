@@ -2,6 +2,9 @@ package tests;
 
 import org.testng.annotations.DataProvider;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,7 +12,7 @@ import java.util.Random;
 
 public class DataProviders {
     @DataProvider
-    public Iterator<Object[]> dynamicDataGeneration()
+    public static Iterator<Object[]> dynamicDataGeneration()
     {
         List<Object[]> data = new ArrayList<Object[]>();
         for (int i = 0; i < 10; i++) {
@@ -18,12 +21,28 @@ public class DataProviders {
         return data.iterator();
     }
 
-    private Object generateComment() {
+    @DataProvider
+    public static Iterator<Object[]> loadDataFromFile() throws IOException
+    {
+        BufferedReader in = new BufferedReader(new InputStreamReader(
+                DataProviders.class.getResourceAsStream("/testData.data")
+        ));
+        List<Object[]> userData = new ArrayList<Object[]>();
+        String line = in.readLine();
+        while (line != null) {
+            userData.add(line.split(";"));
+            line = in.readLine();
+        }
+        in.close();
+        return userData.iterator();
+    }
+
+    private static Object generateComment() {
         Object data = new Random().nextInt();
         return "comment" + data.toString();
     }
 
-    private Object generateSum() {
+    private static Object generateSum() {
         Object data = new Random().nextFloat() * 10000;
         return data.toString();
     }
