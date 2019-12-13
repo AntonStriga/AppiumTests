@@ -10,15 +10,9 @@ import lib.ui.factories.CategoriesPageObjectFactory;
 import lib.ui.factories.ExpensesPageObjectFactory;
 import lib.ui.factories.HomePageObjectFactory;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
 
 import static org.testng.Assert.assertEquals;
 
@@ -267,7 +261,7 @@ public class ExpensesPageTests extends CoreTestCase
         verification.assertAll();
     }
 
-    @Test (dataProvider = "testData")
+    @Test (dataProviderClass = DataProviders.class, dataProvider = "dynamicDataGeneration")
     public void testDataProvider (String amount_sum, String comment)
     {
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
@@ -291,25 +285,5 @@ public class ExpensesPageTests extends CoreTestCase
         );
 
         verification.assertAll();
-    }
-
-    @DataProvider
-    public Iterator<Object[]> testData()
-    {
-        List<Object[]> data = new ArrayList<Object[]>();
-        for (int i = 0; i < 10; i++) {
-            data.add(new Object[]{generateSum(), generateComment()});
-        }        
-        return data.iterator();
-    }
-
-    private Object generateComment() {
-        Object data = new Random().nextInt();
-        return "comment" + data.toString();
-    }
-
-    private Object generateSum() {
-        Object data = new Random().nextFloat() * 10000;
-        return data.toString();
     }
 }
