@@ -261,7 +261,7 @@ public class ExpensesPageTests extends CoreTestCase
         verification.assertAll();
     }
 
-    @Test (dataProviderClass = DataProviders.class, dataProvider = "dynamicDataGeneration")
+    @Test (dataProviderClass = DataProviders.class, dataProvider = "loadDataFromFile")
     public void testDataProvider (String amount_sum, String comment)
     {
         ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
