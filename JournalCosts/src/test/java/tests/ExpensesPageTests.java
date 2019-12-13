@@ -10,9 +10,10 @@ import lib.ui.factories.CategoriesPageObjectFactory;
 import lib.ui.factories.ExpensesPageObjectFactory;
 import lib.ui.factories.HomePageObjectFactory;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
 import static org.testng.Assert.assertEquals;
 
 public class ExpensesPageTests extends CoreTestCase

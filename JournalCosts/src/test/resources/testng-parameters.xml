@@ -1,0 +1,48 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="Test 1">
+        <parameter name="amount_sum" value="0"/>
+        <parameter name="comment" value="test"/>
+        <classes>
+            <class name="tests.ExpensesPageTests">
+                <methods>
+                    <include name="testParametersInTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Test 2">
+        <parameter name="amount_sum" value="1001"/>
+        <parameter name="comment" value="zzz"/>
+        <classes>
+            <class name="tests.ExpensesPageTests">
+                <methods>
+                    <include name="testParametersInTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Test 3">
+        <parameter name="amount_sum" value="1034.01"/>
+        <parameter name="comment" value="VeryLongCommentVeryLongCommentVeryLongCommentVeryLongComment"/>
+        <classes>
+            <class name="tests.ExpensesPageTests">
+                <methods>
+                    <include name="testParametersInTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Test 4">
+        <parameter name="amount_sum" value="asdfg"/>
+        <parameter name="comment" value="xx"/>
+        <classes>
+            <class name="tests.ExpensesPageTests">
+                <methods>
+                    <include name="testParametersInTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
