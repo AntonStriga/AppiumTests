@@ -1,6 +1,7 @@
 package tests;
 
 import lib.CoreTestCase;
+import lib.DataProviders;
 import lib.ui.factories.CalculatorPageObjectFactory;
 import lib.ui.pageObjects.CalculatorPageObject;
 import lib.ui.pageObjects.CategoriesPageObject;
