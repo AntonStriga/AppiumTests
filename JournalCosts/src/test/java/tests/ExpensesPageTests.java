@@ -11,7 +11,8 @@ import lib.ui.factories.ExpensesPageObjectFactory;
 import lib.ui.factories.HomePageObjectFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.Parameters;
+import org.testng.asserts.SoftAssert;
 import static org.testng.Assert.assertEquals;
 
 public class ExpensesPageTests extends CoreTestCase
@@ -230,5 +231,58 @@ public class ExpensesPageTests extends CoreTestCase
                 ExpensesPageObject.MAIN_TITLE,
                 "We didn't return to the Expense page"
         );
+    }
+
+    @Test
+    @Parameters ({"amount_sum", "comment"})
+    public void testParametersInTest (String amount_sum, String comment)
+    {
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        ExpensesPageObject.setAmmountSum(amount_sum);
+        ExpensesPageObject.setComment(comment);
+
+        SoftAssert verification = new SoftAssert();
+        String resultSum = ExpensesPageObject.getAmountSumValue();
+        verification.assertEquals(
+                resultSum,
+                amount_sum,
+                "Sum was not send correctly"
+        );
+
+        String resultComment = ExpensesPageObject.getComment();
+        verification.assertEquals(
+                resultComment,
+                comment,
+                "Comment was not send correctly"
+        );
+
+        verification.assertAll();
+    }
+
+    @Test (dataProviderClass = DataProviders.class, dataProvider = "dynamicDataGeneration")
+    public void testDataProvider (String amount_sum, String comment)
+    {
+        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+        ExpensesPageObject.getTitle();
+        ExpensesPageObject.setAmmountSum(amount_sum);
+        ExpensesPageObject.setComment(comment);
+
+        SoftAssert verification = new SoftAssert();
+        String resultSum = ExpensesPageObject.getAmountSumValue();
+        verification.assertEquals(
+                resultSum,
+                amount_sum,
+                "Sum was not send correctly"
+        );
+
+        String resultComment = ExpensesPageObject.getComment();
+        verification.assertEquals(
+                resultComment,
+                comment,
+                "Comment was not send correctly"
+        );
+
+        verification.assertAll();
     }
 }
