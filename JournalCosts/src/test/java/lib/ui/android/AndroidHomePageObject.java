@@ -23,6 +23,9 @@ public class AndroidHomePageObject extends HomePageObject
         BALANCE_CURRENCY_VALUE_LOCATOR = "id:com.vitvov.profit:id/tvMainCurrency3";
         MONTH_INCOMES_SUM_LOCATOR = "xpath://*[@resource-id='com.vitvov.profit:id/profitListView']//*[@text='Month']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
         BALANCE_SUM_LOCATOR = "xpath://*[@resource-id='com.vitvov.profit:id/balanceListView']//*[@text='All Time']/following-sibling::*[@resource-id='com.vitvov.profit:id/tvVal']";
+        ALL_EXPENSES_BUTTON_LOCATOR = "id:com.vitvov.profit:id/ibtTopSummryCost";
+        ALL_INCOMES_BUTTON_LOCATOR = "id:com.vitvov.profit:id/ibtTopSummryProfit";
+        MENU_BUTTON_LOCATOR = "xpath://*[@resource-id='com.vitvov.profit:id/toolbar']//*[@class='android.widget.ImageButton']";
     }
 
     public AndroidHomePageObject(RemoteWebDriver driver)

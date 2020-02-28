@@ -1,11 +1,15 @@
 package lib.ui.pageObjects;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.regex.Pattern;
 
 public class MainPageObject
@@ -56,5 +60,61 @@ public class MainPageObject
         } else {
             throw new IllegalArgumentException("Cannot detect type of locator. Locator: " + locator_with_type);
         }
+    }
+
+    public void swipe(int start_x, int start_y, int end_x, int end_y)
+    {
+        TouchAction action = new TouchAction((AppiumDriver) driver);
+        action
+                .press(start_x, start_y)
+                .waitAction(Duration.ofMillis(250))
+                .moveTo(end_x, end_y)
+                .release()
+                .perform();
+    }
+
+    public void swipeRight()
+    {
+        Dimension size = driver.manage().window().getSize();
+        int start_x = (int) (size.width * 0.05);
+        int y = size.height / 2;
+        int end_x = (int) (size.width * 0.95);
+        this.swipe(start_x, y, end_x, y);
+    }
+
+    public void swipeLeft()
+    {
+        Dimension size = driver.manage().window().getSize();
+        int start_x = (int) (size.width * 0.95);
+        int y = size.height / 2;
+        int end_x = (int) (size.width * 0.05);
+        this.swipe(start_x, y, end_x, y);
+    }
+
+    public void swipeUp()
+    {
+        Dimension size = driver.manage().window().getSize();
+        int x = size.width / 2;
+        int start_y = (int) (size.height * 0.05);
+        int end_y = (int) (size.height * 0.95);
+        this.swipe(x, start_y, x, end_y);
+    }
+
+    public void swipeDown()
+    {
+        Dimension size = driver.manage().window().getSize();
+        int x = size.width / 2;
+        int start_y = (int) (size.height * 0.95);
+        int end_y = (int) (size.height * 0.05);
+        this.swipe(x, start_y, x, end_y);
+    }
+
+    protected void tapByLocation(int x, int y)
+    {
+        TouchAction action = new TouchAction((AppiumDriver) driver);
+        action
+                .press(x, y)
+                .release()
+                .perform();
     }
 }

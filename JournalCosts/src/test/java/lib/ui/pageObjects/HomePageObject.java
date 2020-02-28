@@ -32,7 +32,10 @@ abstract public class HomePageObject extends MainPageObject
             INCOME_CURRENCY_VALUE_LOCATOR,
             BALANCE_CURRENCY_VALUE_LOCATOR,
             MONTH_INCOMES_SUM_LOCATOR,
-            BALANCE_SUM_LOCATOR;
+            BALANCE_SUM_LOCATOR,
+            ALL_EXPENSES_BUTTON_LOCATOR,
+            ALL_INCOMES_BUTTON_LOCATOR,
+            MENU_BUTTON_LOCATOR;
 
     public HomePageObject (RemoteWebDriver driver)
     {
@@ -93,45 +96,74 @@ abstract public class HomePageObject extends MainPageObject
         this.waitForElementAndClick(VIEW_BALANCE_BUTTON_LOCATOR, "Cannot find view balance button by locator " + VIEW_BALANCE_BUTTON_LOCATOR);
     }
 
-    public String getTodayExpenseSum() {
+    public void clickAllExpenseButton()
+    {
+        this.waitForTitleElement(MAIN_TITLE_LOCATOR);
+        this.waitForElementAndClick(ALL_EXPENSES_BUTTON_LOCATOR, "Cannot find All expenses button by locator " + ALL_EXPENSES_BUTTON_LOCATOR);
+    }
+
+    public void clickAllIncomesButton()
+    {
+        this.waitForTitleElement(MAIN_TITLE_LOCATOR);
+        this.waitForElementAndClick(ALL_INCOMES_BUTTON_LOCATOR, "Cannot find All incomes button by locator " + ALL_INCOMES_BUTTON_LOCATOR);
+    }
+
+    public void clickMenuButton()
+    {
+        this.waitForTitleElement(MAIN_TITLE_LOCATOR);
+        this.waitForElementAndClick(MENU_BUTTON_LOCATOR, "Cannot find All incomes button by locator " + MENU_BUTTON_LOCATOR);
+    }
+
+    public String getTodayExpenseSum()
+    {
         WebElement title_element = this.waitForElementPresent(TODAY_EXPENSE_SUM_LOCATOR,"Cannot find Today expense sum by locator " + TODAY_EXPENSE_SUM_LOCATOR);
         return title_element.getAttribute("text");
     }
 
-    public String getWeekExpenseSum() {
+    public String getWeekExpenseSum()
+    {
         WebElement title_element = this.waitForElementPresent(WEEK_EXPENSE_SUM_LOCATOR,"Cannot find Week expense sum by locator " + WEEK_EXPENSE_SUM_LOCATOR);
         return title_element.getAttribute("text");
     }
 
-    public String getMonthExpenseSum() {
+    public String getMonthExpenseSum()
+    {
         WebElement title_element = this.waitForElementPresent(MONTH_EXPENSE_SUM_LOCATOR,"Cannot find Month expense sum by locator " + MONTH_EXPENSE_SUM_LOCATOR);
         return title_element.getAttribute("text");
     }
 
-    public String getExpensesCurrencyValue() {
+    public String getExpensesCurrencyValue()
+    {
         WebElement title_element = this.waitForElementPresent(EXPENCE_CURRENCY_VALUE_LOCATOR,"Cannot find Expense Currency field by locator " + EXPENCE_CURRENCY_VALUE_LOCATOR);
         return title_element.getAttribute("text");
     }
 
-    public String getIncomesCurrencyValue() {
+    public String getIncomesCurrencyValue()
+    {
         WebElement title_element = this.waitForElementPresent(INCOME_CURRENCY_VALUE_LOCATOR,"Cannot find Income Currency field by locator " + INCOME_CURRENCY_VALUE_LOCATOR);
         return title_element.getAttribute("text");
     }
 
-    public String getBalanceCurrencyValue() {
+    public String getBalanceCurrencyValue()
+    {
         WebElement title_element = this.waitForElementPresent(BALANCE_CURRENCY_VALUE_LOCATOR,"Cannot find Balance Currency field by locator " + BALANCE_CURRENCY_VALUE_LOCATOR);
         return title_element.getAttribute("text");
     }
 
-    public String getMonthIncomesSum() {
+    public String getMonthIncomesSum()
+    {
         WebElement title_element = this.waitForElementPresent(MONTH_INCOMES_SUM_LOCATOR,"Cannot find Month incomes sum by locator " + MONTH_INCOMES_SUM_LOCATOR);
         return title_element.getAttribute("text");
     }
 
-    public String getBalanceSum() {
+    public String getBalanceSum()
+    {
         WebElement title_element = this.waitForElementPresent(BALANCE_SUM_LOCATOR,"Cannot find Balance sum by locator " + BALANCE_SUM_LOCATOR);
         return title_element.getAttribute("text");
     }
 
-
+    public void swipeMenuToOpen()
+    {
+        this.swipeRight();
+    }
 }

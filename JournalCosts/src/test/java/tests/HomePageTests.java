@@ -1,18 +1,13 @@
 package tests;
 
 import lib.CoreTestCase;
-import lib.ui.pageObjects.BalancePageObject;
-import lib.ui.pageObjects.ExpensesPageObject;
-import lib.ui.pageObjects.HomePageObject;
-import lib.ui.pageObjects.IncomesPageObject;
-import lib.ui.factories.BalancePageObjectFactory;
-import lib.ui.factories.ExpensesPageObjectFactory;
-import lib.ui.factories.HomePageObjectFactory;
-import lib.ui.factories.IncomesPageObjectFactory;
+import lib.ui.factories.*;
+import lib.ui.pageObjects.*;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class HomePageTests extends CoreTestCase
 {
@@ -230,6 +225,64 @@ public class HomePageTests extends CoreTestCase
                 title_element,
                 BalancePageObject.MAIN_TITLE,
                 "Opened page is not 'Year balance'"
+        );
+    }
+
+    @Test (groups = {"smoke"})
+    public void openAllExpensesPageByButton()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAllExpenseButton();
+
+        AllExpensesPageObject AllExpensePageObject = AllExpensesPageObjectFactory.get(driver);
+        String title_element = AllExpensePageObject.getTitle();
+
+        assertEquals(
+                title_element,
+                AllExpensePageObject.MAIN_TITLE,
+                "Opened page is not 'All expenses'"
+        );
+    }
+
+    @Test (groups = {"smoke"})
+    public void openAllIncomesPageByButton()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickAllIncomesButton();
+
+        AllIncomesPageObject AllIncomesPageObject = AllIncomesPageObjectFactory.get(driver);
+        String title_element = AllIncomesPageObject.getTitle();
+
+        assertEquals(
+                title_element,
+                AllIncomesPageObject.MAIN_TITLE,
+                "Opened page is not 'All expenses'"
+        );
+    }
+
+    @Test (groups = {"smoke"})
+    public void openMenuByButton()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.clickMenuButton();
+
+        MenuPageObject MenuPageObject = MenuPageObjectFactory.get(driver);
+        assertTrue(
+                MenuPageObject.checkIfMenuIsOpen(),
+                "Menu is not opened by clicking icon"
+        );
+    }
+
+    @Test (groups = {"smoke"})
+    public void openMenuBySwiping()
+    {
+        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+        HomePageObject.swipeMenuToOpen();
+
+        MenuPageObject MenuPageObject = MenuPageObjectFactory.get(driver);
+        assertTrue(
+                MenuPageObject.checkIfMenuIsOpen(),
+                "Menu is not opened by swipping"
         );
     }
 }
