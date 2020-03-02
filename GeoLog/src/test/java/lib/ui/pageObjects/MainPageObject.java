@@ -44,6 +44,12 @@ public class MainPageObject
         element.sendKeys(value);
     }
 
+    protected void waitForElementAndClear(String locator, String error_message)
+    {
+        WebElement element = this.waitForElementPresent(locator, error_message);
+        element.clear();
+    }
+
     public WebElement waitForTitleElement(String locator)
     {
         return this.waitForElementPresent(locator, "Cannot find title element by locator "+ locator);
@@ -119,4 +125,5 @@ public class MainPageObject
                 .release()
                 .perform();
     }
+
 }

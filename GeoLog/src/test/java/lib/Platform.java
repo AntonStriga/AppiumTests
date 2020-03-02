@@ -12,10 +12,10 @@ public class Platform {
     private static final String
             PLATFORM_IOS = "ios",
             PLATFORM_ANDROID = "android",
-            ANDROID_APPLICATION = "d:\\Appium_workspace\\AppiumTests\\JournalCosts\\src\\test\\apks\\com.vitvov.profit.apk",
+            ANDROID_APPLICATION = "d:\\Appium_workspace\\AppiumTests\\GeoLog\\src\\test\\apks\\geolog_test.apk",
             IOS_APPLICATION = "",
-            ANDROID_APP_PACKAGE = "com.vitvov.profit",
-            ANDROID_APP_ACTIVITY = ".ui.activity.LoginActivity",
+            ANDROID_APP_PACKAGE = "com.geolog",
+            ANDROID_APP_ACTIVITY = ".ui.splash.SplashActivity",
             APPIUM_URL_TEMPLATE = "http://127.0.0.1:{PORT}/wd/hub";
 
     private static Platform instance;
@@ -64,7 +64,7 @@ public class Platform {
 
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("deviceName","AndroidTestDevice");
-        capabilities.setCapability("platformVersion","6.0");
+        capabilities.setCapability("platformVersion","8.0");
         capabilities.setCapability("automationName","Appium");
         capabilities.setCapability("appPackage", ANDROID_APP_PACKAGE);
         capabilities.setCapability("appActivity", ANDROID_APP_ACTIVITY);

@@ -24,19 +24,19 @@ public class HomePageTests extends CoreTestCase
         );
     }
 
-    @Test (groups = {"smoke"})
-    public void openExpesePageByAddButton()
-    {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        HomePageObject.clickAddExpenseButton();
-
-        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
-        String title_element = ExpensesPageObject.getTitle();
-
-        assertEquals(
-                title_element,
-                ExpensesPageObject.MAIN_TITLE,
-                "Opened page is not 'Expense'"
-        );
-    }
+//    @Test (groups = {"smoke"})
+//    public void openExpesePageByAddButton()
+//    {
+//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
+//        HomePageObject.clickAddExpenseButton();
+//
+//        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
+//        String title_element = ExpensesPageObject.getTitle();
+//
+//        assertEquals(
+//                title_element,
+//                ExpensesPageObject.MAIN_TITLE,
+//                "Opened page is not 'Expense'"
+//        );
+//    }
 }
