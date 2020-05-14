@@ -38,14 +38,14 @@ abstract public class LoginPageObject extends MainPageObject
         this.waitForElementAndClear(LOGIN_FIELD_LOCATOR, "Can not find Login field by locator: " + LOGIN_FIELD_LOCATOR);
     }
 
-    public void clearPassword()
-    {
-        this.waitForElementAndClear(PASSWORD_FIELD_LOCATOR, "Can not find Password field by locator: " + PASSWORD_FIELD_LOCATOR);
-    }
-
     public void setLogin(String value)
     {
         this.waitForElementAndSendKeys(LOGIN_FIELD_LOCATOR, value, "Can not find Login field by locator: " + LOGIN_FIELD_LOCATOR);
+    }
+
+    public void clearPassword()
+    {
+        this.waitForElementAndClear(PASSWORD_FIELD_LOCATOR, "Can not find Password field by locator: " + PASSWORD_FIELD_LOCATOR);
     }
 
     public void setPassword(String value)

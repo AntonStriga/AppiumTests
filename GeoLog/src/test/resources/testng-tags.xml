@@ -9,7 +9,7 @@
         </groups>
 
         <classes>
-            <class name="tests.HomePageTests"/>
+            <class name="tests.StructurePageTests"/>
         </classes>
     </test>
 </suite>
