@@ -7,9 +7,9 @@ public class AndroidForgotPasswordPageObject extends ForgotPasswordPageObject
 {
     static {
         MAIN_TITLE_LOCATOR = "id:com.geolog:id/restore_password_tv_title";
-        RESTORE_PASSWORD_DESCRIPTION_LOCATOR = "id:com.geolog:id/restore_password_tv_description";
-        RESTORE_PASSWORD_ADMIN_LOCATOR = "id:com.geolog:id/restore_password_tv_admin";
-        RESTORE_PASSWORD_PICTURE_LOCATOR = "id:com.geolog:id/restore_password_iv_pic";
+        MAIN_DESCRIPTION_LOCATOR = "id:com.geolog:id/restore_password_tv_description";
+        ADMIN_NAME_LOCATOR = "id:com.geolog:id/restore_password_tv_admin";
+        MAIN_PICTURE_LOCATOR = "id:com.geolog:id/restore_password_iv_pic";
         BACK_BUTTON_LOCATOR = "id:com.geolog:id/restore_password_iv_back";
     }
 

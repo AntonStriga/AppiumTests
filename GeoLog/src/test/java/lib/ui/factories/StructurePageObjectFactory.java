@@ -1,6 +1,9 @@
 package lib.ui.factories;
 
 import lib.Platform;
+import lib.ui.android.AndroidStructurePageObject;
+import lib.ui.ios.iOSStructurePageObject;
+import lib.ui.pageObjects.StructurePageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class StructurePageObjectFactory 

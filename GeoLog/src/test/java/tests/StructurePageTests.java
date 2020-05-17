@@ -14,12 +14,12 @@ public class StructurePageTests extends CoreTestCase
     @Test (groups = {"title","smoke"})
     public void mainTitleVerification()
     {
-        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-        String title_element = HomePageObject.getTitle();
+        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+        String title_element = StructurePageObject.getTitle();
 
         assertEquals(
                 title_element,
-                HomePageObject.MAIN_TITLE,
+                StructurePageObject.MAIN_TITLE,
                 "Title of the Home page is incorrect."
         );
     }
@@ -27,8 +27,8 @@ public class StructurePageTests extends CoreTestCase
 //    @Test (groups = {"smoke"})
 //    public void openExpesePageByAddButton()
 //    {
-//        HomePageObject HomePageObject = HomePageObjectFactory.get(driver);
-//        HomePageObject.clickAddExpenseButton();
+//        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+//        StructurePageObject.clickAddExpenseButton();
 //
 //        ExpensesPageObject ExpensesPageObject = ExpensesPageObjectFactory.get(driver);
 //        String title_element = ExpensesPageObject.getTitle();

@@ -64,7 +64,7 @@ public class Platform {
 
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("deviceName","AndroidTestDevice");
-        capabilities.setCapability("platformVersion","8.0");
+        capabilities.setCapability("platformVersion","10");
         capabilities.setCapability("automationName","Appium");
         capabilities.setCapability("appPackage", ANDROID_APP_PACKAGE);
         capabilities.setCapability("appActivity", ANDROID_APP_ACTIVITY);
