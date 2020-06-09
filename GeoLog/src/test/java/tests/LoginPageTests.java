@@ -1,11 +1,13 @@
 package tests;
 
+import io.appium.java_client.AppiumDriver;
 import lib.CoreTestCase;
 import lib.ui.factories.ForgotPasswordPageObjectFactory;
 import lib.ui.factories.LoginPageObjectFactory;
 import lib.ui.pageObjects.ForgotPasswordPageObject;
 import lib.ui.pageObjects.LoginPageObject;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import static org.testng.Assert.assertEquals;
 
@@ -67,6 +69,8 @@ public class LoginPageTests extends CoreTestCase
     public void enterButtonTitleVerification()
     {
         LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
+        LoginPageObject.getPasswordFieldTitle();
+        ((AppiumDriver)driver).hideKeyboard();
         String title_element = LoginPageObject.getEnterButtonTitle();
 
         assertEquals(
@@ -80,6 +84,8 @@ public class LoginPageTests extends CoreTestCase
     public void forgotPasswordButtonTitleVerification()
     {
         LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
+        LoginPageObject.getPasswordFieldTitle();
+        ((AppiumDriver)driver).hideKeyboard();
         String title_element = LoginPageObject.getForgotPasswordButtonTitle();
 
         assertEquals(
@@ -93,7 +99,8 @@ public class LoginPageTests extends CoreTestCase
     public void enterForgotPasswordPage()
     {
         LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
-        LoginPageObject.getForgotPasswordButtonTitle();
+        LoginPageObject.getPasswordFieldTitle();
+        ((AppiumDriver)driver).hideKeyboard();
         LoginPageObject.clickForgotPasswordButton();
 
         ForgotPasswordPageObject ForgotPasswordPageObject = ForgotPasswordPageObjectFactory.get(driver);
@@ -106,6 +113,152 @@ public class LoginPageTests extends CoreTestCase
     }
 
     @Test
+    public void loginEmptyFields()
+    {
+        LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
+        LoginPageObject.getDescription();
+        ((AppiumDriver)driver).hideKeyboard();
+        LoginPageObject.clearLogin();
+        LoginPageObject.clearPassword();
+        LoginPageObject.clickEnterButton();
+        String title_element = LoginPageObject.getErrorPopupTitle();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_POPUP_TITLE,
+                "Error popup title is incorrect"
+        );
+        title_element = LoginPageObject.getErrorPopupText();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_POPUP_TEXT,
+                "Incorrect error message for empty login field"
+        );
+        LoginPageObject.clickErrorPopupOkButton();
+        LoginPageObject.checkErrorPopupDisappears();
+
+        softAssert.assertAll();
+    }
+
+    @Test
+    public void loginEmptyLogin()
+    {
+        LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
+        LoginPageObject.getDescription();
+        ((AppiumDriver)driver).hideKeyboard();
+        LoginPageObject.clearLogin();
+        LoginPageObject.clearPassword();
+        LoginPageObject.setPassword(LoginPageObject.PASSWORD);
+        LoginPageObject.clickEnterButton();
+        String title_element = LoginPageObject.getErrorPopupTitle();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_POPUP_TITLE,
+                "Error popup title is incorrect"
+        );
+        title_element = LoginPageObject.getErrorPopupText();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_EMPTY_LOGIN_POPUP_TEXT,
+                "Incorrect error message for empty login field"
+        );
+        LoginPageObject.clickErrorPopupOkButton();
+        LoginPageObject.checkErrorPopupDisappears();
+
+        softAssert.assertAll();
+    }
+
+    @Test
+    public void loginEmptyPassword()
+    {
+        LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
+        LoginPageObject.getDescription();
+        ((AppiumDriver)driver).hideKeyboard();
+        LoginPageObject.clearLogin();
+        LoginPageObject.clearPassword();
+        LoginPageObject.setLogin(LoginPageObject.LOGIN);
+        LoginPageObject.clickEnterButton();
+        String title_element = LoginPageObject.getErrorPopupTitle();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_POPUP_TITLE,
+                "Error popup title is incorrect"
+        );
+        title_element = LoginPageObject.getErrorPopupText();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_EMPTY_PASSWORD_POPUP_TEXT,
+                "Incorrect error message for empty login field"
+        );
+        LoginPageObject.clickErrorPopupOkButton();
+        LoginPageObject.checkErrorPopupDisappears();
+
+        softAssert.assertAll();
+    }
+
+    @Test
+    public void loginWrongPassword()
+    {
+        LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
+        LoginPageObject.getDescription();
+        ((AppiumDriver)driver).hideKeyboard();
+        LoginPageObject.clearLogin();
+        LoginPageObject.clearPassword();
+        LoginPageObject.setLogin(LoginPageObject.LOGIN);
+        LoginPageObject.setPassword("ZZZZZZZ");
+        LoginPageObject.clickEnterButton();
+        String title_element = LoginPageObject.getErrorPopupTitle();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_POPUP_TITLE,
+                "Error popup title is incorrect"
+        );
+        title_element = LoginPageObject.getErrorPopupText();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_WRONG_PASSWORD_POPUP_TEXT,
+                "Incorrect error message for wrong password"
+        );
+        LoginPageObject.clickErrorPopupOkButton();
+        LoginPageObject.checkErrorPopupDisappears();
+
+        softAssert.assertAll();
+    }
+
+    @Test
+    public void loginWrongLogin()
+    {
+        LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
+        LoginPageObject.getDescription();
+        ((AppiumDriver)driver).hideKeyboard();
+        LoginPageObject.clearLogin();
+        LoginPageObject.clearPassword();
+        LoginPageObject.setLogin("ZZZZZZZZ");
+        LoginPageObject.setPassword(LoginPageObject.PASSWORD);
+        LoginPageObject.clickEnterButton();
+        String title_element = LoginPageObject.getErrorPopupTitle();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_POPUP_TITLE,
+                "Error popup title is incorrect"
+        );
+        title_element = LoginPageObject.getErrorPopupText();
+        softAssert.assertEquals(
+                title_element,
+                LoginPageObject.ERROR_WRONG_LOGIN_POPUP_TEXT,
+                "Incorrect error message for wrong login"
+        );
+        LoginPageObject.clickErrorPopupOkButton();
+        LoginPageObject.checkErrorPopupDisappears();
+
+        softAssert.assertAll();
+    }
+
+    @Test
     public void loginApp()
     {
         LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
@@ -114,6 +267,7 @@ public class LoginPageTests extends CoreTestCase
         LoginPageObject.setLogin(LoginPageObject.LOGIN);
         LoginPageObject.clearPassword();
         LoginPageObject.setPassword(LoginPageObject.PASSWORD);
+        ((AppiumDriver)driver).hideKeyboard();
         LoginPageObject.clickEnterButton();
 
 

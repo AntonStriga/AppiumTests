@@ -13,7 +13,13 @@ abstract public class LoginPageObject extends MainPageObject
             PASSWORD = "Bandit177rus",
             PASSWORD_FIELD_TITLE = "Пароль",
             ENTER_BUTTON_TITLE = "Войти",
-            FORGOT_PASSWORD_BUTTON_TITLE = "Не помню пароль";
+            FORGOT_PASSWORD_BUTTON_TITLE = "Не помню пароль",
+            ERROR_POPUP_TITLE = "Ошибка",
+            ERROR_POPUP_TEXT = "Логин пользователя не указан",
+            ERROR_EMPTY_LOGIN_POPUP_TEXT = "Логин пользователя не указан",
+            ERROR_EMPTY_PASSWORD_POPUP_TEXT = "Пароль пользователя не указан",
+            ERROR_WRONG_PASSWORD_POPUP_TEXT = "Неправильный логин или пароль.",
+            ERROR_WRONG_LOGIN_POPUP_TEXT = "Неправильный логин или пароль.";
 
     protected static String
             MAIN_TITLE_LOCATOR,
@@ -23,7 +29,10 @@ abstract public class LoginPageObject extends MainPageObject
             PASSWORD_FIELD_TITLE_LOCATOR,
             ENTER_BUTTON_LOCATOR,
             LOGIN_FIELD_TITLE_LOCATOR,
-            FORGOT_PASSWORD_BUTTON_LOCATOR;
+            FORGOT_PASSWORD_BUTTON_LOCATOR,
+            ERROR_POPUP_TITLE_LOCATOR,
+            ERROR_POPUP_TEXT_LOCATOR,
+            ERROR_POPUP_OK_BUTTON_LOCATOR;
 
     public LoginPageObject (RemoteWebDriver driver)
     {
@@ -98,4 +107,26 @@ abstract public class LoginPageObject extends MainPageObject
     {
         this.waitForElementAndClick(FORGOT_PASSWORD_BUTTON_LOCATOR, "Can not fond Forgot password button by locator: " + FORGOT_PASSWORD_BUTTON_LOCATOR);
     }
+
+    public String getErrorPopupTitle()
+    {
+        WebElement title_element = this.waitForTitleElement(ERROR_POPUP_TITLE_LOCATOR);
+        return title_element.getAttribute("text");
+    }
+
+    public String getErrorPopupText()
+    {
+        WebElement title_element = this.waitForTitleElement(ERROR_POPUP_TEXT_LOCATOR);
+        return title_element.getAttribute("text");
+    }
+
+    public void clickErrorPopupOkButton()
+    {
+        this.waitForElementAndClick(ERROR_POPUP_OK_BUTTON_LOCATOR, "Can not find Error popup OK button by locator: " + ERROR_POPUP_OK_BUTTON_LOCATOR);
+    }
+
+    public void checkErrorPopupDisappears()
+    {
+        this.waitForElementNotPresent(ERROR_POPUP_TITLE_LOCATOR, "Popup didn' disappear");
+    };
 }

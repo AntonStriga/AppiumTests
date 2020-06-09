@@ -14,6 +14,9 @@ public class AndroidLoginPageObject extends LoginPageObject
         PASSWORD_FIELD_TITLE_LOCATOR = "id:com.geolog:id/signin_tv_password";
         ENTER_BUTTON_LOCATOR = "id:com.geolog:id/signin_btn_login";
         FORGOT_PASSWORD_BUTTON_LOCATOR = "id:com.geolog:id/signin_btn_forgot";
+        ERROR_POPUP_TITLE_LOCATOR = "id:com.geolog:id/alert_dialog_ok_title_text_view";
+        ERROR_POPUP_TEXT_LOCATOR = "id:com.geolog:id/alert_dialog_ok_message_text_view";
+        ERROR_POPUP_OK_BUTTON_LOCATOR = "id:com.geolog:id/alert_dialog_ok_button";
     }
 
     public AndroidLoginPageObject(RemoteWebDriver driver) {

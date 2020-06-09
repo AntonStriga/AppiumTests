@@ -12,7 +12,7 @@ public class Platform {
     private static final String
             PLATFORM_IOS = "ios",
             PLATFORM_ANDROID = "android",
-            ANDROID_APPLICATION = "d:\\Appium_workspace\\AppiumTests\\GeoLog\\src\\test\\apks\\geolog_test.apk",
+            ANDROID_APPLICATION = "d:\\Appium_workspace\\AppiumTests\\GeoLog\\src\\test\\apks\\geolog_v0.0.10.6_2020-04-28-12-42_toTest.apk",
             IOS_APPLICATION = "",
             ANDROID_APP_PACKAGE = "com.geolog",
             ANDROID_APP_ACTIVITY = ".ui.splash.SplashActivity",

@@ -1,5 +1,6 @@
 package tests;
 
+import io.appium.java_client.AppiumDriver;
 import lib.CoreTestCase;
 import lib.ui.factories.ForgotPasswordPageObjectFactory;
 import lib.ui.factories.LoginPageObjectFactory;
@@ -17,6 +18,7 @@ public class ForgotPasswordPageTests extends CoreTestCase
     {
         LoginPageObject LoginPageObject = LoginPageObjectFactory.get(driver);
         LoginPageObject.getForgotPasswordButtonTitle();
+        ((AppiumDriver)driver).hideKeyboard();
         LoginPageObject.clickForgotPasswordButton();
     }
 

@@ -7,7 +7,7 @@ abstract public class ForgotPasswordPageObject extends MainPageObject
 {
     public final String
             MAIN_TITLE = "Не помню пароль",
-            MAIN_DESCRIPTION = "Для смены пароля обратитесь к администратору",
+            MAIN_DESCRIPTION = "Для смены пароля\n" + "обратитесь к администратору",
             ADMIN_NAME = "Паину Андрею";
 
     protected static String

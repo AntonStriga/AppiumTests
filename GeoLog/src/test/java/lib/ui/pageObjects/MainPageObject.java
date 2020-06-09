@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -30,6 +31,13 @@ public class MainPageObject
         By by = this.generateLocatorByString(locator);
         wait.withMessage(error_message + "\n");
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
+    public void waitForElementNotPresent(String locator, String error_message)
+    {
+        By by = this.generateLocatorByString(locator);
+        wait.withMessage(error_message + "\n");
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
     public void waitForElementAndClick(String locator, String error_message)
@@ -125,5 +133,4 @@ public class MainPageObject
                 .release()
                 .perform();
     }
-
 }
