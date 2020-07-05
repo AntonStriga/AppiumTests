@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class StructurePageTests extends CoreTestCase
 {
@@ -24,18 +25,87 @@ public class StructurePageTests extends CoreTestCase
         LoginPageObject.clickEnterButton();
     }
 
-    @Test (groups = {"smoke"})
+    @Test ()
     public void iconVerification()
     {
         StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
-        String title_element = StructurePageObject.getTitle();
+        Boolean title_icon = StructurePageObject.isIconPresent();
 
+        assertTrue(
+                title_icon,
+                "Title Icon is not shown."
+        );
+    }
 
+    @Test ()
+    public void swipeClasters()
+    {
+        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+        StructurePageObject.getTitle();
+        StructurePageObject.swipeClustersLeftToFindName("Клондайк");
+    }
 
-        assertEquals(
-                title_element,
-                StructurePageObject.MAIN_TITLE,
-                "Title of the Sructure page is incorrect."
+    @Test
+    public void navigateToRequestsPage()
+    {
+        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+        StructurePageObject.getTitle();
+        StructurePageObject.clickRequestsButton();
+
+        RequestsPageObject RequestsPajeObject = RequestsPajeObjectFactory.get(driver);
+        Boolean title_icon = RequestsPajeObject.isIconPresent();
+
+        assertTrue(
+                title_icon,
+                "Requests page is not opened."
+        );
+    }
+
+    @Test
+    public void navigateToTasksPage()
+    {
+        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+        StructurePageObject.getTitle();
+        StructurePageObject.clickTasksButton();
+
+        TasksPageObject TasksPageObject = TasksPageObjectFactory.get(driver);
+        Boolean title_icon = TasksPageObject.isIconPresent();
+
+        assertTrue(
+                title_icon,
+                "Tasks page is not opened."
+        );
+    }
+
+    @Test
+    public void navigateToRoomChatPage()
+    {
+        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+        StructurePageObject.getTitle();
+        StructurePageObject.clickRoomChatButton();
+
+        RoomChatPageObject RoomChatPageObject = RoomChatPageObjectFactory.get(driver);
+        Boolean title_icon = RoomChatPageObject.isIconPresent();
+
+        assertTrue(
+                title_icon,
+                "Tasks page is not opened."
+        );
+    }
+
+    @Test
+    public void navigateToProfilePage()
+    {
+        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+        StructurePageObject.getTitle();
+        StructurePageObject.clickProfileButton();
+
+        ProfilePageObject ProfilePageObject = ProfilePageObjectFactory.get(driver);
+        Boolean title_icon = ProfilePageObject.isIconPresent();
+
+        assertTrue(
+                title_icon,
+                "Profile page is not opened."
         );
     }
 }

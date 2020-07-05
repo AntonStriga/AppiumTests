@@ -6,6 +6,7 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -63,7 +64,7 @@ public class MainPageObject
         return this.waitForElementPresent(locator, "Cannot find title element by locator "+ locator);
     }
 
-    private By generateLocatorByString(String locator_with_type)
+    public By generateLocatorByString(String locator_with_type)
     {
         String [] exploded_locator = locator_with_type.split(Pattern.quote(":"), 2);
         String by_type = exploded_locator[0];
@@ -83,7 +84,18 @@ public class MainPageObject
         TouchAction action = new TouchAction((AppiumDriver) driver);
         action
                 .press (PointOption.point(start_x, start_y))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(250)))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                .moveTo(PointOption.point(end_x, end_y))
+                .release()
+                .perform();
+    }
+
+    public void swipe(int start_x, int start_y, int end_x, int end_y, int wait)
+    {
+        TouchAction action = new TouchAction((AppiumDriver) driver);
+        action
+                .press (PointOption.point(start_x, start_y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(wait)))
                 .moveTo(PointOption.point(end_x, end_y))
                 .release()
                 .perform();
@@ -123,6 +135,16 @@ public class MainPageObject
         int start_y = (int) (size.height * 0.95);
         int end_y = (int) (size.height * 0.05);
         this.swipe(x, start_y, x, end_y);
+    }
+
+    public void swipeElementLeft(WebElement element)
+    {
+        Dimension elementSize = element.getSize();
+        Point elementLocation = element.getLocation();
+        int start_x = elementLocation.x + 2;
+        int y = elementLocation.y + elementSize.height / 2;
+        int end_x = 2;
+        this.swipe(start_x, y, end_x, y, 1500);
     }
 
     protected void tapByLocation(int x, int y)

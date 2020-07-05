@@ -4,8 +4,10 @@ import io.appium.java_client.AppiumDriver;
 import lib.CoreTestCase;
 import lib.ui.factories.ForgotPasswordPageObjectFactory;
 import lib.ui.factories.LoginPageObjectFactory;
+import lib.ui.factories.StructurePageObjectFactory;
 import lib.ui.pageObjects.ForgotPasswordPageObject;
 import lib.ui.pageObjects.LoginPageObject;
+import lib.ui.pageObjects.StructurePageObject;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -270,6 +272,12 @@ public class LoginPageTests extends CoreTestCase
         ((AppiumDriver)driver).hideKeyboard();
         LoginPageObject.clickEnterButton();
 
-
+        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+        String title_element = StructurePageObject.getTitle();
+        assertEquals(
+                title_element,
+                StructurePageObject.MAIN_TITLE,
+                "Login is not success"
+        );
     }
 }
