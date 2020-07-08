@@ -14,7 +14,7 @@ public class AndroidStructurePageObject extends StructurePageObject
         TASKS_BUTTON_LOCATOR = "id:com.geolog:id/bottom_navigation_panel_tasks_item";
         ROOM_CHAT_BUTTON_LOCATOR = "id:com.geolog:id/bottom_navigation_panel_messages_item";
         PROFILE_BUTTON_LOCATOR = "id:com.geolog:id/bottom_navigation_panel_profile_item";
-
+        STRUCTURE_BUTTON_LOCATOR = "id:com.geolog:id/bottom_navigation_panel_structure_item";
     }
 
     public AndroidStructurePageObject(RemoteWebDriver driver)

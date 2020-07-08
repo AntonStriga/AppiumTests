@@ -45,7 +45,7 @@ public class StructurePageTests extends CoreTestCase
         StructurePageObject.swipeClustersLeftToFindName("Клондайк");
     }
 
-    @Test
+    @Test (groups = {"navigation"})
     public void navigateToRequestsPage()
     {
         StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
@@ -61,7 +61,7 @@ public class StructurePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"navigation"})
     public void navigateToTasksPage()
     {
         StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
@@ -77,7 +77,7 @@ public class StructurePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"navigation"})
     public void navigateToRoomChatPage()
     {
         StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
@@ -93,7 +93,7 @@ public class StructurePageTests extends CoreTestCase
         );
     }
 
-    @Test
+    @Test (groups = {"navigation"})
     public void navigateToProfilePage()
     {
         StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
@@ -106,6 +106,25 @@ public class StructurePageTests extends CoreTestCase
         assertTrue(
                 title_icon,
                 "Profile page is not opened."
+        );
+    }
+
+    @Test (groups = {"navigation"})
+    public void navigateToStructurePage()
+    {
+        StructurePageObject StructurePageObject = StructurePageObjectFactory.get(driver);
+        StructurePageObject.getTitle();
+        StructurePageObject.clickProfileButton();
+
+        ProfilePageObject ProfilePageObject = ProfilePageObjectFactory.get(driver);
+        ProfilePageObject.isIconPresent();
+
+        StructurePageObject.clickStructureButton();
+        Boolean title_icon = StructurePageObject.isIconPresent();
+
+        assertTrue(
+                title_icon,
+                "Structure page is not opened."
         );
     }
 }

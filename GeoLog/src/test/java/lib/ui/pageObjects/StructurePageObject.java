@@ -19,7 +19,8 @@ abstract public class StructurePageObject extends MainPageObject
             REQUESTS_BUTTON_LOCATOR,
             TASKS_BUTTON_LOCATOR,
             ROOM_CHAT_BUTTON_LOCATOR,
-            PROFILE_BUTTON_LOCATOR;
+            PROFILE_BUTTON_LOCATOR,
+            STRUCTURE_BUTTON_LOCATOR;
 
     public StructurePageObject(RemoteWebDriver driver)
     {
@@ -76,6 +77,12 @@ abstract public class StructurePageObject extends MainPageObject
     public void clickProfileButton()
     {
         this.waitForElementAndClick(PROFILE_BUTTON_LOCATOR, "Can not find Profile button by locator: " + PROFILE_BUTTON_LOCATOR);
+
+    }
+
+    public void clickStructureButton()
+    {
+        this.waitForElementAndClick(STRUCTURE_BUTTON_LOCATOR, "Can not find Structure button by locator: " + STRUCTURE_BUTTON_LOCATOR);
 
     }
 }
